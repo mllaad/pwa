@@ -1,0 +1,401 @@
+:root {
+  /* borders */
+  --medium: 14px;
+  --small: 10px;
+  --extraSmall: 8px;
+
+  /* inputs height */
+  --normalHeight: 48px;
+  --smallHeight: 43px;
+  --extraSmallHeight: 36px;
+
+  /* fontSize */
+  --fontExtraSmall: 12px;
+  --fontSmall: 14px;
+  --fontMedium: 15px;
+  --fontLarge: 17px;
+  /* --fontExtraLarge: 1px; */
+}
+
+/* ------------------------------ DEFAULT CHECKBOX -------------------------- */
+
+/* سایز */
+.default__CheckBox,
+.default__CheckBox .ant-form-item-control-input-content {
+  height: 20px !important;
+  width: 20px !important;
+  margin: 0px !important;
+  display: block !important;
+}
+.default__CheckBox .ant-form-item-control-input label {
+  width: 16px !important;
+  height: 16px !important;
+  background-color: #0554f2 !important;
+}
+.default__CheckBox label {
+  background-color: aliceblue;
+}
+.ant-checkbox-checked svg {
+  display: none;
+  width: 0px !important;
+  height: 0px !important;
+  background-color: #0554f2 !important;
+}
+.ant-checkbox-inner {
+  background-color: #0554f2;
+}
+/* تیک تایید */
+.ant-checkbox-inner::after {
+  display: none !important;
+}
+/* سایز */
+.default__CheckBox .ant-checkbox-inner {
+  display: flex;
+  width: 20px;
+  height: 20px;
+  border-color: #0554f2 !important;
+  border-radius: 1px !important;
+}
+.default__CheckBox .ant-checkbox-checked .ant-checkbox-inner {
+  background-color: #0554f2 !important;
+}
+
+@media screen and (max-width: 320px) {
+  .default__CheckBox .ant-checkbox-inner {
+    display: flex;
+    width: 17px !important;
+    height: 17px !important;
+    border-color: #0554f2 !important;
+  }
+}
+
+/* ----------------------------- RADIO INPUT ---------------------------- */
+.default__Radio .ant-radio {
+  display: none;
+}
+.default__Radio .ant-radio span {
+  padding: 0px !important;
+}
+
+/* --------------------------------- AUTOCOMPLETE ------------------------- */
+/* height of autocomplete */
+.autocomplete__container {
+  width: 100%;
+  margin: auto;
+  margin: 0px 0px;
+}
+.autocomplete {
+  margin: auto !important;
+}
+.autocomplete .ant-input-prefix,
+.autocomplete .ant-input-prefix svg {
+  margin-top: 2px;
+  margin-left: 2%;
+  width: 30px;
+  height: 30px;
+}
+.autocomplete__label {
+  text-align: right;
+  font-size: var(--fontLarge);
+  padding: 0px 0px 6px 0px;
+}
+.ant-select-dropdown {
+  z-index: 99999999999;
+}
+.autocomplete .ant-input-affix-wrapper {
+  border: 1px solid #0554f2 !important;
+  border-radius: var(--medium) !important;
+  height: var(--normalHeight);
+  justify-self: center;
+  justify-items: center;
+}
+.autocomplete input {
+  text-align: center;
+  margin-top: 7px;
+  font-size: var(--fontLarge);
+  border-radius: var(--medium) !important;
+  border-radius: var(--extraSmall) !important;
+}
+.autocomplete input:focus-visible {
+  border: 0px solid !important;
+}
+
+@media screen and (max-width: 425px) {
+  .autocomplete .ant-input-prefix,
+  .autocomplete .ant-input-prefix svg {
+    margin-top: 2px;
+    margin-left: 2%;
+    width: 25px;
+    height: 25px;
+  }
+  .autocomplete input {
+    text-align: center;
+    margin-top: 6px;
+  }
+  .form__btn {
+    height: var(--smallHeight);
+    margin: 40px 0px;
+  }
+  .autocomplete .ant-input-affix-wrapper {
+    height: var(--smallHeight);
+    border-radius: var(--small) !important;
+  }
+  .autocomplete__label {
+    padding: 0px;
+    font-size: var(--fontMedium);
+  }
+  .autocomplete input {
+    font-size: 0.9rem !important;
+  }
+  .ant-form-item-explain-success {
+    display: block;
+    width: 100%;
+    font-size: var(--fontMedium);
+  }
+}
+@media screen and (max-width: 375px) {
+  .ant-form-item-explain-success {
+    display: block;
+    width: 100%;
+    font-size: var(--fontSmall);
+  }
+}
+@media screen and (max-width: 320px) {
+  .autocomplete .ant-input-prefix,
+  .autocomplete .ant-input-prefix svg {
+    margin-top: 2px;
+    margin-left: 2%;
+    width: 23px;
+    height: 23px;
+  }
+  .form__btn {
+    height: var(--extraSmallHeight);
+    margin: 20px 0px;
+  }
+  .autocomplete__label {
+    padding: 0px;
+    font-size: var(--fontExtraSmall);
+  }
+  .autocomplete .ant-input-affix-wrapper {
+    height: var(--extraSmallHeight);
+    border-radius: var(--extraSmall) !important;
+  }
+  .autocomplete input {
+    font-size: var(--fontExtraSmall) !important;
+    /* bor */
+  }
+  .ant-form-item-explain-success {
+    display: block;
+    width: 100%;
+    font-size: var(--fontExtraSmall);
+  }
+}
+
+/*  ------------------- INPUT NUMBER ------------------ */
+.default__InputNumber--wrraper {
+  margin: 0px !important;
+}
+.default__InputNumber--wrraper label {
+  /* font-size: 18px !important; */
+  height: 29px !important;
+  display: flex !important;
+  align-items: start !important;
+  justify-content: end !important;
+  font-size: var(--fontLarge) !important;
+}
+.default__InputNumber {
+  height: var(--normalHeight);
+  border: 1px solid #0554f2 !important;
+  width: 100% !important;
+  display: flex;
+  align-items: center;
+  border-radius: var(--medium);
+
+  /* direction: rtl; */
+  text-align: right;
+}
+.default__InputNumber input {
+  font-size: var(--fontMedium) !important;
+  text-align: center !important;
+}
+.default__InputNumber .ant-input-number-input {
+  border: 0px;
+  width: 100% !important;
+}
+/* remove steper of antd inputNumber */
+.default__InputNumber .ant-input-number-handler-wrap {
+  display: none !important;
+}
+/* take all of width container */
+.default__InputNumber .ant-input-number-input-wrap {
+  width: 100% !important;
+}
+.default__InputNumber input:focus-visible {
+  border: 0px !important;
+}
+.default__InputNumber .ant-input-suffix {
+  margin-bottom: 7px;
+  margin-left: -5px;
+}
+.default__InputNumber label {
+  /* height: 23px;
+  font-size: var(--fontLarge) !important;
+  font-size: 10px !important; */
+}
+/* .default__InputNumber .ant-input-number-handler-wrap {
+    display: none;
+    width: 0px !important;
+} */
+.default__InputNumber .ant-form-item-explain {
+  height: 70px;
+  width: 100%;
+}
+.default__InputNumber .ant-input-number-input-wrap {
+  display: flex;
+  align-items: center;
+  width: 94%;
+  padding: 5%;
+  text-align: center !important;
+}
+.normal-inputNumber-help {
+  height: 135px;
+}
+@media screen and (max-height: 720px) and (min-aspect-ratio: 3/4) {
+  .default__InputNumber {
+    font-size: 15px;
+  }
+  .default__InputNumber--wrraper label {
+    font-size: 15px !important;
+  }
+}
+@media screen and (max-width: 425px) {
+  .default__InputNumber {
+    height: var(--normalHeight);
+    font-size: var(--fontMedium);
+    border-radius: var(--medium) !important;
+  }
+  .normal-inputNumber-help {
+    height: 150px;
+  }
+  .normal-inputNumber-help {
+    height: 130px;
+  }
+  .default__InputNumber--wrraper label {
+    font-size: var(--fontMedium) !important;
+    height: 26px !important;
+  }
+}
+@media screen AND (max-width: 375px) {
+  .default__InputNumber {
+    height: var(--smallHeight) !important;
+    /* height: 20px !important; */
+    font-size: 14px !important;
+    border-radius: var(--small);
+  }
+
+  .default__InputNumber--wrraper label {
+    font-size: var(--fontSmall) !important;
+    height: 24px !important;
+  }
+}
+@media screen and (max-width: 320px) {
+  .default__InputNumber {
+    height: 36px !important;
+    font-size: var(--fontExtraSmall) !important;
+    border-radius: var(--extraSmall) !important;
+  }
+  .default__InputNumber input::placeholder {
+    font-size: var(--fontExtraSmall) !important;
+  }
+  .normal-inputNumber-help {
+    height: 110px;
+  }
+  .default__InputNumber--wrraper label {
+    font-size: 12px !important;
+    height: 20px !important;
+  }
+}
+
+/* -----------------------------------------  INPUT ----------------------------------------- */
+/* کارت مقصد */
+.default__input {
+  font-size: 16px;
+  text-align: right;
+  width: 100%;
+  height: var(--normalHeight);
+  border: 1px solid #0554f2 !important;
+  border-radius: 10px;
+}
+.default__input-wrraper label {
+  font-size: 17px !important;
+  height: 29px !important;
+  display: flex !important;
+  align-items: start !important;
+  justify-content: end !important;
+}
+/* .default__input-wrraper .ant-form-item-explain-error {
+  position: absolute !important;
+  background-color: white;
+  width: 100%;
+  right: 50%;
+  padding: 0px 10px;
+  border-radius: 5px !important;
+  transform: translateX(50%);
+  z-index: 1;
+} */
+.default__input .ant-input-suffix {
+  margin-bottom: 7px;
+  margin-left: -5px;
+}
+.default__input-wrraper {
+  margin: 0px !important;
+}
+
+.default__input input {
+  text-align: right !important;
+  margin: 0px !important;
+}
+
+@media screen and (max-width: 768px) {
+}
+@media screen and (max-height: 720px) and (min-aspect-ratio: 3/4) {
+  .default__input {
+    font-size: 15px;
+  }
+  .default__input-wrraper label {
+    font-size: 15px !important;
+  }
+}
+@media screen and (max-width: 425px) {
+  .default__input {
+    height: var(--smallHeight) !important;
+    font-size: 15px;
+    border-radius: var(--small);
+  }
+  .default__input-wrraper label {
+    font-size: 15px !important;
+    height: 26px !important;
+  }
+}
+@media screen and (max-width: 375px) {
+  .default__input {
+    height: var(--smallHeight) !important;
+    border-radius: var(--small) !important;
+    font-size: 14px;
+  }
+  .default__input-wrraper label {
+    font-size: 14px !important;
+    height: 24px !important;
+  }
+}
+@media screen and (max-width: 320px) {
+  .default__input {
+    font-size: 12px;
+    height: var(--extraSmallHeight) !important;
+    border-radius: var(--extraSmall) !important;
+  }
+  .default__input-wrraper label {
+    font-size: 12px !important;
+    height: 20px !important;
+  }
+}

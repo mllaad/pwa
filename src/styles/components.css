@@ -1,0 +1,1058 @@
+:root {
+  /* borders */
+  --medium: 14px;
+  --small: 10px;
+  --extraSmall: 8px;
+
+  /* inputs height */
+  --normalHeight: 48px;
+  --smallHeight: 43px;
+  --extraSmallHeight: 36px;
+
+  /* fontSize */
+  --fontExtraSmall: 12px;
+  --fontSmall: 14px;
+  --fontMedium: 15px;
+  --fontLarge: 17px;
+  /* --fontExtraLarge: 1px; */
+}
+
+/* ----------------------------  PelakSetting ------------------------------------- */
+.pelak__scroll {
+  display: grid;
+  row-gap: 20px;
+  height: 500px;
+  overflow: scroll;
+  padding-bottom: 40px;
+}
+.PelakSetting {
+  width: 80%;
+  height: 100%;
+  margin: auto;
+  background-color: #e6e6e6;
+  padding: 40px 10px 10px 10px;
+  border-radius: var(--medium);
+  display: flex;
+  align-items: end;
+  position: relative;
+  justify-content: space-between;
+}
+.PelakSetting__setting {
+  width: 15%;
+  display: grid;
+  align-content: space-between;
+  padding-right: 20px;
+  transform: translateY(-5px);
+  height: 110%;
+}
+.PelakSetting__edit,
+.PelakSetting__edit svg {
+  width: 100%;
+  height: 100%;
+  scale: 1.1;
+}
+.PelakSetting__remove,
+.PelakSetting__remove svg {
+  width: 100%;
+  height: 100%;
+  scale: 1.1;
+}
+.PelakSetting__setting svg path {
+  fill: black;
+}
+.PelakSetting__pelak {
+  width: 100%;
+}
+.PelakSetting__title {
+  text-align: right;
+  position: absolute;
+  top: 0px;
+  right: 3%;
+  font-size: 20px;
+}
+@media screen and (max-width: 768px) {
+}
+@media screen and (max-height: 720px) and (min-aspect-ratio: 3/4) {
+}
+@media screen and (max-width: 425px) {
+  .PelakSetting {
+    padding-top: 30px;
+  }
+  .PelakSetting__setting {
+    padding-right: 5px;
+  }
+  .PelakSetting__edit,
+  .PelakSetting__edit svg {
+    width: 100%;
+    height: 100%;
+    scale: 1;
+  }
+  .PelakSetting__remove {
+    transform: translate(-2px);
+    scale: 1;
+  }
+}
+@media screen and (max-width: 375px) {
+  .PelakSetting {
+    padding-top: 30px;
+  }
+  .PelakSetting__setting {
+    padding-right: 5px;
+  }
+  .PelakSetting__edit,
+  .PelakSetting__edit svg {
+    width: 100%;
+    height: 100%;
+    scale: 1.1;
+  }
+  .PelakSetting__remove {
+    transform: translate(-2px);
+    scale: 1.2;
+  }
+}
+@media screen and (max-width: 320px) {
+  .PelakSetting {
+    width: 90%;
+  }
+  .PelakSetting__edit,
+  .PelakSetting__edit svg {
+    width: 100%;
+    height: 100%;
+    scale: 1.1;
+  }
+  .PelakSetting__remove,
+  .PelakSetting__remove svg {
+    width: 100%;
+    height: 100%;
+  }
+  .PelakSetting {
+    padding-top: 20px;
+  }
+  .PelakSetting__setting {
+    padding-right: 5px;
+  }
+  .PelakSetting__remove {
+    transform: translate(-2px);
+    scale: 1.2;
+  }
+}
+
+/* --------------------------- PelakCar --------------------------------- */
+.PelakCar {
+  position: relative;
+}
+.PelakCar,
+.PelakCar__background,
+.PelakCar__background svg {
+  width: 100%;
+  height: 90%;
+}
+.PelakCar__content {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  display: grid;
+  grid-template-columns: 17.5% 18% 22% 22% 20%;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-items: center;
+  padding-bottom: 11px;
+}
+.PelakCar__lastcol {
+  align-self: flex-end;
+  margin-bottom: 3px;
+}
+.PelakCar__content span {
+  font-size: 19px !important;
+}
+@media screen and (max-width: 768px) {
+}
+@media screen and (max-height: 720px) and (min-aspect-ratio: 3/4) {
+  .PelakCar__lastcol {
+    margin-bottom: 5px;
+  }
+}
+@media screen and (max-width: 425px) {
+  .PelakCar__content span {
+    font-size: 1.1rem !important;
+  }
+  .PelakCar__lastcol {
+    margin-bottom: 0px;
+  }
+}
+@media screen and (max-width: 375px) {
+  .PelakCar__content span {
+    font-size: 1rem !important;
+  }
+  .PelakCar__lastcol {
+    margin-bottom: 0px;
+  }
+}
+@media screen and (max-width: 320px) {
+  .PelakCar__content span {
+    font-size: var(--fontMedium) !important;
+    margin-top: 6px;
+  }
+  .PelakCar__lastcol {
+    margin-bottom: 0px;
+    line-height: 1.5 !important;
+  }
+}
+
+/* ------------------------------- PelakMotor ------------------------------- */
+
+.PelakMotor {
+  position: relative;
+}
+
+.PelakMotor,
+.PelakMotor__background,
+.PelakMotor__background svg {
+  width: 100%;
+  height: 90%;
+}
+.PelakMotor__content {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  display: grid;
+  grid-template-columns: 17.5% 35% 47%;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-items: center;
+  padding-bottom: 11px;
+}
+.PelakMotor__content span {
+  font-size: 19px !important;
+}
+@media screen and (max-width: 768px) {
+}
+@media screen and (max-height: 720px) and (min-aspect-ratio: 3/4) {
+}
+@media screen and (max-width: 425px) {
+  .PelakMotor__content span {
+    font-size: 1.1rem !important;
+  }
+}
+@media screen and (max-width: 375px) {
+  .PelakMotor__content span {
+    font-size: 1rem !important;
+  }
+}
+@media screen and (max-width: 320px) {
+  .PelakMotor__content span {
+    font-size: var(--fontMedium) !important;
+    line-height: 3.3;
+  }
+}
+
+/* -------------------------------------------------- CarPelakInput ----------------------------------------- */
+.CarPelakInput {
+  width: 100%;
+}
+.CarPelakInput__background,
+.CarPelakInput__background svg {
+  width: 100% !important;
+  height: 100% !important;
+  position: relative;
+}
+.CarPelakInput__content {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: grid;
+  align-items: center;
+  grid-template-columns: 17.5% 18% 22% 22% 20%;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+}
+.CarPelakInput__input {
+  width: 50%;
+  margin: auto;
+}
+.pelak__input {
+  width: 60px !important;
+  background-color: transparent;
+  margin: auto;
+}
+.pelak__input input {
+  font-size: 22px !important;
+}
+.pelak__dropdown {
+  margin: 0px !important;
+  z-index: 9999999999999 !important;
+  text-align: center;
+  width: 100% !important;
+  max-width: 100px;
+}
+.pelak__input--lastcol {
+  margin-top: auto;
+  margin-bottom: 30px;
+  width: 40px;
+  background-color: transparent !important;
+  margin: auto auto 30px auto;
+}
+.pelak__input--lastcol input {
+  font-size: 22px !important;
+}
+
+@media screen and (max-width: 768px) {
+}
+@media screen and (max-height: 720px) and (min-aspect-ratio: 3/4) {
+}
+@media screen and (max-width: 425px) {
+  .pelak__input--lastcol {
+    margin: auto auto 15px auto;
+  }
+  .pelak__input--lastcol input {
+    background-color: transparent !important;
+  }
+}
+@media screen and (max-width: 375px) {
+  .pelak__input--lastcol {
+    margin: auto auto 10px auto;
+  }
+}
+@media screen and (max-width: 320px) {
+  .pelak__input {
+    width: 50px !important;
+  }
+  .pelak__dropdown {
+    width: 60px !important;
+  }
+  .pelak__input--lastcol {
+    margin: auto auto 10px auto;
+  }
+  .pelak__input--lastcol input {
+    background-color: transparent !important;
+  }
+  .pelak__dropdown > * {
+    font-size: 0.8rem !important;
+  }
+  .pelak__input--lastcol input,
+  .pelak__input input {
+    font-size: 1rem !important;
+  }
+}
+
+/* -------------------------------------------------- MotorPelakInput ----------------------------------------- */
+.MotorPelakInput {
+  width: 100%;
+  position: relative;
+}
+.MotorPelakInput__background,
+.MotorPelakInput__background svg {
+  width: 100%;
+  height: 90%;
+  position: relative;
+}
+.MotorPelakInput__content {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: grid;
+  align-items: center;
+  grid-template-columns: 17.5% 38% auto;
+
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+}
+.MotorPelakInput__input input {
+  background-color: transparent;
+  font-size: 1.2rem !important;
+}
+
+@media screen and (max-width: 768px) {
+}
+@media screen and (max-height: 720px) and (min-aspect-ratio: 3/4) {
+}
+@media screen and (max-width: 425px) {
+}
+@media screen and (max-width: 375px) {
+  .MotorPelakInput__input input {
+    font-size: 1.1rem !important;
+  }
+}
+@media screen and (max-width: 320px) {
+}
+
+/* ------------------------------ CheckBoxWrapper ------------------------------- */
+.checkBox_wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+}
+.checkBox_wrapper__label {
+  font-size: 1rem;
+  margin: 4px 8px 0px 0px;
+}
+@media screen and (max-width: 425px) {
+  .checkBox_wrapper__label {
+    margin: 5px 8px 0px 0px;
+    font-size: 1rem;
+  }
+}
+@media screen and (max-width: 375px) {
+  .checkBox_wrapper__label {
+    margin: 6px 5px 0px 0px;
+    font-size: 0.9rem;
+  }
+}
+@media screen and (max-width: 320px) {
+  .checkBox_wrapper__label {
+    margin: 5px 5px 0px 0px;
+    font-size: 0.95rem;
+  }
+}
+
+/* -------------------------------------- Header -------------------------------------- */
+.Header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5%;
+  background-color: #0554f2;
+  color: #ffffff;
+  max-height: 56px;
+  height: 60px;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+}
+.Header__back {
+  cursor: pointer;
+  width: 100px;
+  height: 100%;
+  display: flex;
+}
+.Header__back svg {
+  width: 40px;
+  height: 50%;
+  margin: auto auto auto 0px;
+}
+.Header__title {
+  font-size: 20px;
+}
+@media screen and (max-width: 425px) {
+  .Header {
+    height: 50px;
+  }
+  .Header__title {
+    font-size: 17px;
+  }
+  .Header__back svg {
+    width: 40px;
+    height: 50%;
+    margin: auto auto auto 0px;
+  }
+}
+@media screen and (max-width: 375px) {
+  .Header {
+    height: 45px;
+  }
+  .Header__title {
+    font-size: 16px;
+  }
+  .Header__back svg {
+    width: 40px;
+    height: 45%;
+    margin: auto auto auto 0px;
+  }
+}
+@media screen and (max-width: 320px) {
+  .Header {
+    height: 40px;
+  }
+  .Header__title {
+    font-size: 15px;
+  }
+}
+
+/* ------------------------------------------ Card ------------------------------------ */
+.Card {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4/2.5;
+  border-radius: 15px;
+  background-color: rgb(207, 207, 207);
+  position: relative;
+  transition: 0.4s all;
+  scale: 1.02;
+}
+.Card__icon {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+.Card__number {
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
+  font-size: 20px;
+  width: 100%;
+  text-align: center;
+}
+
+.Card__date {
+  position: absolute;
+  bottom: 10px;
+  right: 20px;
+  font-size: 20px;
+  font-size: 17px;
+}
+
+/* test */
+.Card--selected {
+  transform: translate(0px, -50px);
+  transition: 0.4s all;
+  z-index: 4;
+}
+.Card__arrow {
+  position: absolute;
+  transition: 0.4s all;
+  transform-origin: 15px 11px !important;
+  bottom: 5px;
+  right: 50%;
+  transform: translate(50%);
+  rotate: 0deg;
+}
+.Card--selected .Card__arrow {
+  transform: translate(0px, 0px);
+  rotate: 180deg;
+  transform-origin: 12px 12px;
+}
+.Card__arrow svg {
+  width: 20px;
+  height: 20px;
+}
+
+.Card__UnderCard {
+  position: absolute;
+  right: 50%;
+  bottom: 0px;
+  transform: translate(50%, 0%);
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 170px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  margin: auto;
+  background-color: #e2e2e2;
+  height: 53px;
+  /* padding: 15px 10px 0px 10px; */
+  z-index: -1;
+}
+.Card__undericon {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.Card__undericon svg {
+  width: 30px;
+  height: 30px;
+}
+
+@media screen and (max-width: 768px) {
+}
+@media screen and (max-height: 720px) and (min-aspect-ratio: 3/4) {
+  .Card__UnderCard {
+    padding: 0px;
+    bottom: 17px;
+    width: 150px;
+    height: 50px;
+  }
+  .Card__undericon svg {
+    width: 30px;
+    height: 30px;
+  }
+}
+@media screen and (max-width: 425px) {
+  .Card {
+    border-radius: var(--small);
+  }
+  .Card__number {
+    font-size: 16px;
+  }
+  .Card__date {
+    font-size: 16px !important;
+  }
+  .Card__icon,
+  .Card__icon svg {
+    width: 35px;
+    height: 35px;
+  }
+  .Card--selected {
+    transform: translate(0px, -48px);
+  }
+  .Card__UnderCard {
+    height: 48px;
+    width: 130px;
+    bottom: 0px;
+  }
+  .Card__arrow {
+    bottom: -5px;
+    transform-origin: 12px 9px !important;
+  }
+  .Card__arrow svg {
+    width: 18px;
+    height: 18px;
+  }
+  .Card__undericon {
+    margin-top: 0px;
+  }
+  .Card__undericon svg {
+    width: 27px;
+    height: 27px;
+  }
+}
+@media screen and (max-width: 375px) {
+  .Card {
+    border-radius: var(--small);
+  }
+  .Card__number {
+    font-size: 15px;
+  }
+  .Card__date {
+    font-size: 15px !important;
+  }
+  .Card__icon,
+  .Card__icon svg {
+    width: 30px;
+    height: 30px;
+  }
+  .Card--selected {
+    transform: translate(0px, -48px);
+  }
+  .Card__UnderCard {
+    height: 48px;
+    width: 130px;
+    bottom: 0px;
+  }
+  .Card__arrow {
+    bottom: -5px;
+    transform-origin: 12px 9px !important;
+  }
+  .Card__arrow svg {
+    width: 18px;
+    height: 18px;
+  }
+  .Card__undericon {
+    margin-top: 0px;
+  }
+  .Card__undericon svg {
+    width: 27px;
+    height: 27px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .Card {
+    border-radius: var(--extraSmall);
+  }
+  .Card__number {
+    font-size: 12px !important;
+  }
+  .Card__date {
+    font-size: 12px !important;
+  }
+  .Card__icon,
+  .Card__icon svg {
+    width: 25px;
+    height: 25px;
+  }
+  .Card__UnderCard {
+    height: 38px;
+    padding: 0px;
+    width: 100px;
+    bottom: 0px;
+  }
+  .Card__undericon {
+    margin-top: 4px;
+  }
+  .Card__undericon svg {
+    width: 20px;
+    height: 20px;
+  }
+  .Card__arrow {
+    bottom: -5px;
+    right: 50%;
+    transform: translate(50%);
+  }
+  .Card__arrow {
+    transform-origin: 10px 12px !important;
+  }
+  .Card__arrow svg {
+    width: 13px;
+    height: 13px;
+  }
+  .Card--selected {
+    transform: translate(0px, -34px);
+  }
+}
+/* ================================================================= */
+/* SwiperCards */
+.wrapperCards__container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.wrapperCards__img {
+  width: 100%;
+  height: 100%;
+}
+.wrapperCards__wallet {
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
+  color: white;
+}
+.SwiperCards__new {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4/2.5;
+  border-radius: 15px;
+  background-color: rgb(207, 207, 207);
+  position: relative;
+  transition: 0.4s all;
+  scale: 1.02;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+}
+@media screen and (max-width: 768px) {
+}
+@media screen and (max-height: 720px) and (min-aspect-ratio: 3/4) {
+}
+@media screen and (max-width: 425px) {
+  .SwiperCards__new {
+    border-radius: var(--medium);
+    font-size: 19px;
+  }
+}
+@media screen and (max-width: 375px) {
+  .SwiperCards__new {
+    border-radius: var(--small);
+    font-size: 17px;
+  }
+}
+@media screen and (max-width: 320px) {
+  .SwiperCards__new {
+    border-radius: var(--extraSmall);
+    font-size: 14px;
+  }
+}
+
+/* -------------------------- SelectPhoneNumber ------------------------------- */
+.SelectPhoneNumber {
+  width: 100%;
+  height: 100%;
+  padding: 10px 0px 0px 0px;
+}
+.SelectPhoneNumber__form {
+  padding-top: 20px;
+  display: grid;
+  grid-template-rows: 100px 60px 80px 40px;
+  justify-items: center;
+  width: 70%;
+  margin: auto;
+}
+.SelectPhoneNumber__groupTitle {
+  text-align: right;
+  font-size: var(--fontLarge);
+}
+.SelectPhoneNumber__groupIcon {
+  width: 100%;
+  height: min-content;
+  display: flex;
+  justify-content: center;
+}
+.SelectPhoneNumber__dropDownItem {
+  border-top: 1px solid #0554f2;
+  margin: auto;
+  align-items: center;
+  flex-direction: row-reverse;
+  display: flex;
+  justify-content: center;
+}
+.selectPhoneNumber__groupCheckbox {
+  display: flex;
+  justify-content: space-evenly;
+  width: 80%;
+}
+.selectPhoneNumber__checkgroup {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 10px;
+  justify-content: space-between;
+}
+.selectPhoneNumber__checkgroup span {
+  font-size: var(--fontLarge);
+  line-height: 1.5;
+}
+.SelectPhoneNumber__btn {
+  background-color: #0554f2;
+  color: white;
+  width: 240px;
+  height: var(--normalHeight);
+  border-radius: var(--medium);
+  margin: 20px auto 30px auto;
+  justify-self: center;
+  /* width: 80%; */
+}
+@media screen and (max-width: 768px) {
+}
+@media screen and (max-height: 720px) and (min-aspect-ratio: 3/4) {
+}
+@media screen and (max-width: 425px) {
+  .SelectPhoneNumber__form {
+    display: grid;
+    grid-template-rows: 90px 40px 90px 40px;
+    justify-items: center;
+    width: 80%;
+    margin: auto;
+  }
+
+  .SelectPhoneNumber__groupTitle {
+    text-align: center;
+    width: 90%;
+    font-size: var(--fontMedium);
+    text-align: center;
+  }
+  .SelectPhoneNumber__groupIcon svg {
+    width: 50px;
+  }
+  .SelectPhoneNumber__btn {
+    height: var(--smallHeight);
+    border-radius: 9px;
+  }
+  .selectPhoneNumber__checkgroup span {
+    font-size: var(--fontMedium);
+    line-height: 2;
+  }
+}
+@media screen and (max-width: 375px) {
+  .SelectPhoneNumber__form {
+    display: grid;
+    grid-template-rows: 90px 35px 80px 40px;
+    justify-items: center;
+    width: 80%;
+    margin: auto;
+  }
+  .SelectPhoneNumber__groupTitle {
+    font-size: var(--fontSmall);
+    text-align: right;
+  }
+  .SelectPhoneNumber__groupIcon svg {
+    width: 48px;
+  }
+  .selectPhoneNumber__checkgroup span {
+    font-size: var(--fontSmall);
+    line-height: 2.3;
+  }
+  .SelectPhoneNumber__btn {
+    height: var(--smallHeight);
+    border-radius: 9px;
+  }
+  .SelectPhoneNumber__dropDownItem {
+    width: 100%;
+  }
+  .SelectPhoneNumber__dropDownItem svg {
+    width: 50px;
+    height: 50px;
+  }
+  .SelectPhoneNumber__dropDownItem span {
+    width: 100px;
+    height: 50px;
+    font-size: var(--fontMedium);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    text-align: right;
+    margin-left: auto;
+  }
+}
+@media screen and (max-width: 320px) {
+  .SelectPhoneNumber__form {
+    display: grid;
+    grid-template-rows: 80px 30px 80px 30px;
+    justify-items: center;
+    width: 85%;
+    margin: auto;
+  }
+  .SelectPhoneNumber__groupTitle {
+    font-size: var(--fontExtraSmall);
+    text-align: right;
+    margin-bottom: 0px;
+  }
+  .SelectPhoneNumber__groupIcon svg {
+    width: 35px;
+    scale: 1.1;
+  }
+
+  .selectPhoneNumber__checkgroup span {
+    font-size: 13px;
+    line-height: 2.3;
+  }
+  .SelectPhoneNumber__dropDownItem {
+    width: 100%;
+  }
+  .SelectPhoneNumber__dropDownItem svg {
+    width: 50px;
+    height: 50px;
+  }
+  .SelectPhoneNumber__dropDownItem span {
+    width: 100px;
+    height: 50px;
+    font-size: var(--fontMedium);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    text-align: right;
+    margin-left: auto;
+  }
+  .SelectPhoneNumber__btn {
+    height: var(--extraSmallHeight);
+    border-radius: 8px;
+    font-size: var(--fontSmall);
+  }
+}
+
+/* ----------------------------  FOOTER ----------------------------- */
+
+.footer {
+  display: grid;
+  align-items: end;
+  width: 100%;
+  position: absolute;
+  bottom: 10px;
+}
+.footer__bg svg {
+  width: 100%;
+  height: 100%;
+}
+.footer__text {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  text-align: center;
+  padding: 0px 2%;
+  color: white;
+}
+.footer__text span {
+  color: white;
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+.footer__items {
+  width: 100%;
+  position: absolute;
+  padding: 0px 10%;
+  top: -25px;
+  display: grid;
+  column-gap: 16.5%;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.footer__itemImage {
+  width: 75%;
+  margin: auto;
+}
+.footer__itemImage svg {
+  width: 100%;
+  height: 100%;
+}
+@media screen and (max-width: 768px) {
+  .footer__items {
+    top: -25px;
+  }
+  .footer__text {
+    bottom: 8px;
+  }
+  .footer__text span {
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+  }
+}
+@media screen and (max-width: 425px) {
+  .footer__items {
+    top: -20px;
+  }
+  .footer__text {
+    bottom: 5px;
+  }
+  .footer__text span {
+    font-size: 0.8rem;
+    margin-bottom: 7px;
+  }
+}
+@media screen and (max-width: 375px) {
+  .footer__items {
+    top: -18px;
+  }
+  .footer__text {
+    bottom: 5px;
+  }
+  .footer__text span {
+    font-size: 0.7rem;
+    margin-bottom: 5px;
+  }
+}
+@media screen and (max-width: 320px) {
+  .footer__items {
+    top: -14px;
+  }
+  .footer__text {
+    bottom: 4px;
+  }
+  .footer__text span {
+    font-size: 0.6rem;
+    margin-bottom: 8px;
+  }
+}
+
+/* ------------------------------- CardBank ------------------------------ */
+
+.CardBank {
+  position: relative;
+  background: linear-gradient(
+    90deg,
+    rgba(201, 113, 81, 1) 0%,
+    rgba(255, 39, 39, 1) 87%
+  );
+  width: 100%;
+  aspect-ratio: 4/3;
+}
+/* .CardBank__logo {
+}
+.CardBank__shomare {
+}
+.CardBank__name {
+}
+.CardBank__expire {
+} */
+
+@media screen and (max-width: 768px) {
+}
+@media screen and (max-height: 720px) and (min-aspect-ratio: 3/4) {
+}
+@media screen and (max-width: 425px) {
+}
+@media screen and (max-width: 375px) {
+}
+@media screen and (max-width: 320px) {
+}
