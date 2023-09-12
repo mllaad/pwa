@@ -1,4 +1,4 @@
-import { Button, Form, message } from "antd";
+import { Button, Form } from "antd";
 import Header from "../../components/Header";
 import Checkbox from "../../components/baseComponents/Checkbox";
 import Input from "../../components/baseComponents/Input";
@@ -7,52 +7,77 @@ import { CallCoreService } from "../../appRedux/features/CoreService";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import withRouter from "../../util/withModalRouter";
+import { createBill } from "../../appRedux/features/Bill";
 
 const NewBill = (props) => {
   const backHandle = () => props.backModal();
-  const { billType, isCreate, id, senderUserId } = props.router.location.state;
+  const { isCreate, id, senderUserId } = props.router.location.state;
   const billID = props.router.location.state?.billID;
+  const billType = props.router.location.state?.billType;
   const billName = props.router.location.state?.billName;
+  const bill = props.bill;
 
   const formHandle = async ({ title, traceNumber, check }) => {
-    if (!check) return;
-    const userid = props.auth.userID;
+    console.log(billID);
+    console.log(billType);
 
-    // ثبت در دیتابیس
-    const { server, objectId, actionType, jsonValues, type } = isCreate
-      ? bill.create(JSON.parse(userid), billType, title, traceNumber)
-      : bill.update(id, title, billType, senderUserId, traceNumber);
-    const { payload } = await props.actions.CallCoreService({
-      server,
-      objectId,
-      actionType,
-      jsonValues,
-      type,
+    const randomDate = () =>
+      new Date(new Date(String(Math.floor(Math.random() * 10000))));
+
+    const randomNumber = () =>
+      Math.floor(10000000000 + Math.random() * 90000000000);
+
+    if (!check) return;
+    // const userid = props.auth.userID;
+
+    const bill = {
+      rootID: billType,
+      name: "test",
+      billID: randomNumber(),
+      paymentID: randomNumber(),
+      amount: randomNumber(),
+      currentDate: randomDate(),
+      paymentDate: randomDate(),
+    };
+    props.actions.createBill(bill);
+    props.navigateByState("../BillList", {
+      billType: billType,
     });
-    if (payload.id < 0) return message.error("اشکال در ثبت");
+    // ثبت در دیتابیس
+    // const { server, objectId, actionType, jsonValues, type } = isCreate
+    //   ? bill.create(JSON.parse(userid), billType, title, traceNumber)
+    //   : bill.update(id, title, billType, senderUserId, traceNumber);
+    // const { payload } = await props.actions.CallCoreService({
+    //   server,
+    //   objectId,
+    //   actionType,
+    //   jsonValues,
+    //   type,
+    // });
+    // if (payload.id < 0) return message.error("اشکال در ثبت");
 
     // درخواست لیست
-    {
-      const { server, objectId, actionType, jsonValues, type } = bill.get(
-        userid,
-        billType
-      );
-      const { payload } = await props.actions.CallCoreService({
-        server,
-        objectId,
-        actionType,
-        jsonValues,
-        type,
-      });
-      if (payload.id > 0) {
-        props.navigateByState("../BillList", {
-          data: payload.data,
-          billType: billType,
-        });
-      } else {
-        message.error(payload.message);
-      }
-    }
+    // {
+    //   const { server, objectId, actionType, jsonValues, type } = bill.get(
+    //     userid,
+    //     billType
+    //   );
+    //   const { payload } = await props.actions.CallCoreService({
+    //     server,
+    //     objectId,
+    //     actionType,
+    //     jsonValues,
+    //     type,
+    //   });
+    //   if (payload.id > 0) {
+    //     props.navigateByState("../BillList", {
+    //       data: payload.data,
+    //       billType: billType,
+    //     });
+    //   } else {
+    //     message.error(payload.message);
+    //   }
+    // }
   };
 
   return (
@@ -107,7 +132,7 @@ const NewBill = (props) => {
   );
 };
 
-const actionCreators = Object.assign({}, { CallCoreService });
+const actionCreators = Object.assign({}, { CallCoreService, createBill });
 const mapDispatchToProps = (dispatch) => ({
   actions: bindActionCreators(actionCreators, dispatch),
 });
@@ -116,6 +141,7 @@ const mapStateToProps = (state) => ({
   coreDataState: state.coreServices.coreDataState,
   auth: state.auth,
   router: state.router,
+  bill: state.bill,
 });
 
 export default connect(

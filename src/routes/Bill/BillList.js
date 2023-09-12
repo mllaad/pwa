@@ -54,7 +54,7 @@ const BillList = (props) => {
     });
 
   // ========================================== استعلام قبض================================
-  const estelamHandle = (billData) => async () => {
+  const estelamHandle = (billID) => async () => {
     // let requestObj;
     // switch (billType) {
     //   // 1: "قبض آب",
@@ -114,11 +114,12 @@ const BillList = (props) => {
     // if (payload.id < 0) {
     //   message.error(<div dir="rtl">{payload.message}</div>);
     // } else {
-    //   props.navigateByState("../Estelam", {
-    //     data: payload.data,
-    //     billType: billType,
-    //     billName: billData.name,
-    //   });
+    const bill = _data.data.find((obj) => obj.billID === billID);
+    props.navigateByState("../Estelam", {
+      data: bill,
+      billType: billType,
+      billName: bill?.name,
+    });
     // }
   };
 
@@ -202,7 +203,7 @@ const BillList = (props) => {
                   </span>
                   <Button
                     className="BillItem__btn"
-                    onClick={estelamHandle(item)}
+                    onClick={estelamHandle(item.billID)}
                   >
                     {" "}
                     استعلام{" "}

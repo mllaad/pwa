@@ -41,9 +41,10 @@ const Estelam = (props) => {
 
   const convertDate = (date) => {
     if (!date) return;
-    const _date = date.split(" ");
+
+    // const _date = date.split(" ");
     let options = { year: "numeric", month: "numeric", day: "numeric" };
-    return new Date(_date).toLocaleDateString("fa-IR", options);
+    return new Date(date).toLocaleDateString("fa-IR", options);
   };
 
   return (
@@ -111,7 +112,7 @@ const Estelam = (props) => {
           {/* moreInfo */}
           <title className="Estelam__titlemore"> جزعیات قبض </title>
           <div className="Estelam__moreinfo">
-            <span className="Estelam__left"> {data.fullName} </span>
+            <span className="Estelam__left"> {data.name} </span>
             <span className="Estelam__right"> نام مشترک </span>
             <span className="Estelam__left">
               {convertDate(data.currentDate)}

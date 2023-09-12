@@ -1,10 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const randomDate = () =>
-  new Date(
-    new Date(2012, 0, 1) +
-      Math.random() * (new Date().getTime() - new Date(2012, 0, 1).getTime())
-  );
+  new Date(new Date(String(Math.floor(Math.random() * 10000))));
 
 const randomNumber = () =>
   Math.floor(10000000000 + Math.random() * 90000000000);
@@ -178,7 +175,18 @@ const billSlice = createSlice({
   initialState,
   reducers: {
     createBill: (state, { payload }) => {
-      state.data = [...state.data, payload];
+      const yes = state.data.map((data) => {
+        // return data.typeID === payload.rootID ? payload : data;
+        if (data.typeID === payload.rootID) {
+          return data.map((obj) => {
+            const s = obj;
+            return s;
+          });
+        } else {
+          return data;
+        }
+      });
+      state.data.data = [...state.data, payload];
     },
     updateBill: (state, { payload }) => {
       state.data = state.data.map((data) => {
@@ -192,5 +200,4 @@ const billSlice = createSlice({
 });
 
 export const billReducer = billSlice.reducer;
-export const { getCard, createCard, updateCard, deleteCard } =
-  billSlice.actions;
+export const { createBill, updateBill, deleteBill } = billSlice.actions;

@@ -43,27 +43,27 @@ const Authentication = (props) => {
     }
 
     // CHECK AUTHORIZE
-    const token = props.auth.token
-      ? props.auth.token
-      : localStorage.getItem("token");
-    props.actions.checkTokenAction(token);
+    // const token = props.auth.token
+    //   ? props.auth.token
+    //   : localStorage.getItem("token");
+    // props.actions.checkTokenAction(token);
 
     return () => props.navigate(0);
   }, []);
 
   // CHECK AUTHORIZE IS VALID
   useEffect(() => {
-    if (!props.auth.tokenIsValid) {
-      navigate({ pathname: "/signup" });
-    }
+    // if (!props.auth.tokenIsValid) {
+    //   navigate({ pathname: "/signup" });
+    // }
   }, [props.auth.tokenIsValid]);
 
   if (showSpashScreen) return <SplashScreen />;
 
   return (
     <>
-      {props.coreServices.promiseState === "pending" && <ShowPending />}
-      {props.auth.authState === "pending" && <ShowPending />}
+      {/* {props.coreServices.promiseState === "pending" && <ShowPending />}
+      {props.auth.authState === "pending" && <ShowPending />} */}
 
       {props.auth.tokenIsValid ? (
         <Main />
@@ -95,6 +95,12 @@ const ShowPending = () => {
 };
 
 const MainNoToken = ({ isValid }) => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    navigate("signup");
+  }, []);
+
   return (
     <div
       style={{
