@@ -26,28 +26,28 @@ const Bill = (props) => {
   const requestData =
     (billingtypeid, route = "BillList") =>
     async () => {
-      const userid = props.auth.userID;
+      // const userid = props.auth.userID;
 
-      let { server, objectId, actionType, jsonValues, type } =
-        billingtypeid === 9
-          ? bill.allPayed(userid)
-          : bill.get(userid, billingtypeid);
+      // let { server, objectId, actionType, jsonValues, type } =
+      //   billingtypeid === 9
+      //     ? bill.allPayed(userid)
+      //     : bill.get(userid, billingtypeid);
 
-      const { payload } = await props.actions.CallCoreService({
-        server,
-        objectId,
-        actionType,
-        jsonValues,
-        type,
+      // const { payload } = await props.actions.CallCoreService({
+      //   server,
+      //   objectId,
+      //   actionType,
+      //   jsonValues,
+      //   type,
+      // });
+      // if (payload.id > 0) {
+      props.navigateByState(route, {
+        // data: payload.data,
+        billType: billingtypeid,
       });
-      if (payload.id > 0) {
-        props.navigateByState(route, {
-          data: payload.data,
-          billType: billingtypeid,
-        });
-      } else {
-        message.error(payload.message);
-      }
+      // } else {
+      //   message.error(payload.message);
+      // }
     };
 
   return (

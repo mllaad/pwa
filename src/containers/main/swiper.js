@@ -16,14 +16,14 @@ const SwiperCards = (props) => {
   const cards = props.card.data;
 
   // get cards
-  useEffect(() => {
-    const obj = card.get(props.auth.userID);
-    props.actions.CallCoreService(obj).then((response) => {
-      if (response.payload.id > 0) {
-        props.actions.userCards(response.payload.data);
-      }
-    });
-  }, []);
+  // useEffect(() => {
+  //   const obj = card.get(props.auth.userID);
+  //   props.actions.CallCoreService(obj).then((response) => {
+  //     if (response.payload.id > 0) {
+  //       props.actions.userCards(response.payload.data);
+  //     }
+  //   });
+  // }, []);
 
   return (
     <>

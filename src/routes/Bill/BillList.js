@@ -19,12 +19,14 @@ import {
   telecommunication,
 } from "../../assets/bill/index";
 import { withRouter } from "../../util/withModalRouter";
+import { toPersianDigits } from "../../util/translateCurrency";
 import { justToFarsi } from "../../util/translateDigit";
-
 const BillList = (props) => {
   const backHandle = () => props.backModal();
 
   const { data, billType } = props.router.location.state;
+
+  const _data = props.bill.data.find((obj) => obj.typeID === billType);
 
   // ================================== قبض جدید =============================================
   const addBillHandle = () =>
@@ -53,73 +55,71 @@ const BillList = (props) => {
 
   // ========================================== استعلام قبض================================
   const estelamHandle = (billData) => async () => {
-    let requestObj;
-    switch (billType) {
-      // 1: "قبض آب",
-      case 1:
-        requestObj = bill.estelam.ab(billData.billID);
-        break;
-      // 2: "قبض برق"
-      case 2:
-        requestObj = bill.estelam.barq(billData.billID);
-        break;
-      // 3: "قبض تلفن ثابت"
-      case 3:
-        requestObj = bill.estelam.telphon(billData.billID);
-        break;
-      // 4: "قبض گاز"
-      case 4:
-        requestObj = bill.estelam.gas(billData.billID);
-        break;
-      // 5: "قبض همراه اول"
-      case 5:
-        requestObj = bill.estelam.hamrahAval(billData.billID);
-        break;
-      // 6: "قبض رایتل"
-      case 6:
-        requestObj = bill.estelam.raitel(billData.billID);
-        break;
-      // 7: "قبض ایرانسل",
-      case 7:
-        requestObj = bill.estelam.irancel(billData.billID);
-        break;
-      // 8: "قبض شهرداری",
-      case 8:
-        requestObj = "onDevelop";
-        break;
-      // 9: "لیست قبض های پرداخت شده",
-      case 9:
-        requestObj = "onDevelop";
-        break;
-      // 10: "سایر قبوض",
-      case 10:
-        requestObj = "onDevelop";
-        break;
-      default:
-        break;
-    }
-    if (!requestObj) return message.error("نوع قبض نامشخص می باشد");
-    if (requestObj === "onDevelop")
-      return message.error("هنوز توسعه پیدا نکرده");
-    const { actionType, jsonValues, objectId, type } = requestObj;
-
-    const { payload } = await props.actions.CallCoreService({
-      server: 0,
-      objectId,
-      actionType,
-      jsonValues,
-      type,
-    });
-
-    if (payload.id < 0) {
-      message.error(<div dir="rtl">{payload.message}</div>);
-    } else {
-      props.navigateByState("../Estelam", {
-        data: payload.data,
-        billType: billType,
-        billName: billData.name,
-      });
-    }
+    // let requestObj;
+    // switch (billType) {
+    //   // 1: "قبض آب",
+    //   case 1:
+    //     requestObj = bill.estelam.ab(billData.billID);
+    //     break;
+    //   // 2: "قبض برق"
+    //   case 2:
+    //     requestObj = bill.estelam.barq(billData.billID);
+    //     break;
+    //   // 3: "قبض تلفن ثابت"
+    //   case 3:
+    //     requestObj = bill.estelam.telphon(billData.billID);
+    //     break;
+    //   // 4: "قبض گاز"
+    //   case 4:
+    //     requestObj = bill.estelam.gas(billData.billID);
+    //     break;
+    //   // 5: "قبض همراه اول"
+    //   case 5:
+    //     requestObj = bill.estelam.hamrahAval(billData.billID);
+    //     break;
+    //   // 6: "قبض رایتل"
+    //   case 6:
+    //     requestObj = bill.estelam.raitel(billData.billID);
+    //     break;
+    //   // 7: "قبض ایرانسل",
+    //   case 7:
+    //     requestObj = bill.estelam.irancel(billData.billID);
+    //     break;
+    //   // 8: "قبض شهرداری",
+    //   case 8:
+    //     requestObj = "onDevelop";
+    //     break;
+    //   // 9: "لیست قبض های پرداخت شده",
+    //   case 9:
+    //     requestObj = "onDevelop";
+    //     break;
+    //   // 10: "سایر قبوض",
+    //   case 10:
+    //     requestObj = "onDevelop";
+    //     break;
+    //   default:
+    //     break;
+    // }
+    // if (!requestObj) return message.error("نوع قبض نامشخص می باشد");
+    // if (requestObj === "onDevelop")
+    // return message.error("هنوز توسعه پیدا نکرده");
+    // const { actionType, jsonValues, objectId, type } = requestObj;
+    // const { payload } = await props.actions.CallCoreService({
+    //   server: 0,
+    //   objectId,
+    //   actionType,
+    //   jsonValues,
+    //   type,
+    // });
+    // if (payload.id < 0) {
+    //   message.error(<div dir="rtl">{payload.message}</div>);
+    // } else {
+    //   props.navigateByState("../Estelam", {
+    //     data: payload.data,
+    //     billType: billType,
+    //     billName: billData.name,
+    //   });
+    // }
   };
 
   // ============================== حذف قبض =======================================
@@ -171,14 +171,16 @@ const BillList = (props) => {
 
   return (
     <>
-      <Header onBack={backHandle} title={toPersion[billType]} />
+      <Header onBack={backHandle} title={"قبض" + " " + _data.typeName} />
       <Form className="BillList__form">
         <span className="BillList__title">
-          {data.length ? "قبض مورد نظر را انتخاب نمایید" : "قبض موجود نمی باشد"}
+          {_data.data.length
+            ? "قبض مورد نظر را انتخاب نمایید"
+            : "قبض موجود نمی باشد"}
         </span>
         <div className="BillItems__container">
-          {Array.isArray(data) &&
-            data.map((item) => (
+          {Array.isArray(_data.data) &&
+            _data.data.map((item) => (
               <div className="BillItem">
                 <div className="BillItem__left">
                   <span
@@ -194,11 +196,10 @@ const BillList = (props) => {
                   </span>
                   <span
                     className="BillItem__trash"
-                    onClick={deleteHandle(item.id)}
+                    onClick={deleteHandle(item.billID)}
                   >
                     {deleteIcon}
                   </span>
-
                   <Button
                     className="BillItem__btn"
                     onClick={estelamHandle(item)}
@@ -213,7 +214,7 @@ const BillList = (props) => {
                     <span className="BillItem__svg">{svgObj[billType]}</span>
                   </span>
                   <span className="BillItem__idNumber">
-                    {justToFarsi(item.billID)}
+                    {toPersianDigits(item.billID)}
                   </span>
                 </div>
               </div>
@@ -237,6 +238,7 @@ const mapStateToProps = (state) => ({
   coreData: state.coreServices.coreData,
   router: state.router,
   auth: state.auth,
+  bill: state.bill,
 });
 
 export default connect(

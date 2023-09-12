@@ -11,6 +11,8 @@ import { userCards } from "../../appRedux/features/Auth";
 import { justToEnglish } from "../../util/translateDigit";
 import { useRef } from "react";
 import { DateFormatter } from "../../util/InputUtils";
+import { updateCard } from "../../appRedux/features/Card";
+import { getRandomColor } from "../../util/randomColor";
 
 const EditCard = (props) => {
   const yearRef = useRef(null);
@@ -25,23 +27,32 @@ const EditCard = (props) => {
   const onCancel = () => props.closeModal();
 
   const formHandle = async ({ year, month }) => {
-    const obj = card.update(
-      id,
-      userID,
-      cardNumber?.replace(/ /g, ""),
-      year,
-      month
-    );
-    const response = await props.actions.CallCoreService(obj);
-    if (response.payload.id > 0) {
-      const obj = card.get(props.auth.userID);
-      const { payload } = await props.actions.CallCoreService(obj);
-      if (payload.id > 0) {
-        message.success(payload.message);
-        props.actions.userCards(payload.data);
-        props.closeModal();
-      }
-    }
+    const card = {
+      cardNumber: cardNumber.replace(/ /g, ""),
+      year: String(year),
+      month: String(month),
+      rgb: getRandomColor(),
+    };
+    props.actions.updateCard(card);
+    props.closeModal();
+
+    // const obj = card.update(
+    //   id,
+    //   userID,
+    //   cardNumber?.replace(/ /g, ""),
+    //   year,
+    //   month
+    // );
+    // const response = await props.actions.CallCoreService(obj);
+    // if (response.payload.id > 0) {
+    //   const obj = card.get(props.auth.userID);
+    //   const { payload } = await props.actions.CallCoreService(obj);
+    //   if (payload.id > 0) {
+    //     message.success(payload.message);
+    //     props.actions.userCards(payload.data);
+    //     props.closeModal();
+    //   }
+    // }
   };
 
   // ===========
@@ -79,7 +90,7 @@ const EditCard = (props) => {
             <InputNumber
               formItemOption={{
                 name: "year",
-                initialValue: "0101",
+                initialValue: initialValueHandle(year),
                 label: "سال",
               }}
               componentOption={{
@@ -118,7 +129,10 @@ const EditCard = (props) => {
   );
 };
 
-const actionCreators = Object.assign({}, { CallCoreService, userCards });
+const actionCreators = Object.assign(
+  {},
+  { CallCoreService, userCards, updateCard }
+);
 const mapDispatchToProps = (dispatch) => ({
   actions: bindActionCreators(actionCreators, dispatch),
 });

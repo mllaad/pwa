@@ -18,17 +18,19 @@ const initialState = {
 };
 
 const cardSlice = createSlice({
-  name: "coreService",
+  name: "card",
   initialState,
   reducers: {
-    createCard: (state, payload) => [...state.data, payload],
-    updateCard: (state, payload) => {
-      state.data = state.data.map((data) =>
-        data.cardNumber === payload.cardNumber ? payload : data
-      );
+    createCard: (state, { payload }) => {
+      state.data = [...state.data, payload];
     },
-    deleteCard: (state, payload) => {
-      state.data = state.data.filter((data) => !data.cardNumber === payload);
+    updateCard: (state, { payload }) => {
+      state.data = state.data.map((data) => {
+        return data.cardNumber === payload.cardNumber ? payload : data;
+      });
+    },
+    deleteCard: (state, { payload }) => {
+      state.data = state.data.filter((data) => data.cardNumber !== payload);
     },
   },
 });

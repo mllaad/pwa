@@ -19,10 +19,15 @@ import { useEffect } from "react";
 import { bankLogo } from "../../util/digitTypeDetect";
 import { userCards } from "../../appRedux/features/Auth";
 import { getRandomColor } from "../../util/randomColor";
+import {
+  createCard,
+  deleteCard,
+  getCard,
+  updateCard,
+} from "../../appRedux/features/Card";
 
 // =============================== Card ===============================
 const Card = (props) => {
-  //   console.log(data);
   const [showDeleteCard, setShowDeleteCard] = useState();
 
   // کارت کلیک شد
@@ -36,22 +41,9 @@ const Card = (props) => {
   }, [slideChange]);
 
   //  حذف کارت
-  const deleteCardHandle = async () => {
+  const deleteCardHandle = () => {
     setShowDeleteCard(false);
-    const obj = card.delete(props.data.id);
-    const { payload } = await props.actions.CallCoreService(obj);
-    if (payload.id > 0) {
-      message.success(payload.message);
-
-      {
-        const obj = card.get(props.auth.userID);
-        const { payload } = await props.actions.CallCoreService(obj);
-        if (payload.id < 0) return message.error(payload.message);
-        const response = props.actions.userCards(payload.data);
-      }
-    } else {
-      message.error(payload.message);
-    }
+    props.actions.deleteCard(props.data.cardNumber);
   };
 
   const dateHandle = (date) => (/\d{2}$/.test(date) ? date : "0" + date);
@@ -121,7 +113,10 @@ const Card = (props) => {
   );
 };
 
-const actionCreators = Object.assign({}, { CallCoreService, userCards });
+const actionCreators = Object.assign(
+  {},
+  { CallCoreService, userCards, deleteCard, updateCard }
+);
 const mapDispatchToProps = (dispatch) => ({
   actions: bindActionCreators(actionCreators, dispatch),
 });

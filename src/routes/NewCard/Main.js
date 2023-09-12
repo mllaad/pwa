@@ -14,6 +14,8 @@ import wallet from "../../apiCall/requestObjects/wallet";
 import { justToEnglish } from "../../util/translateDigit";
 import { userCards } from "../../appRedux/features/Auth";
 import { DateFormatter, cardNumber_Formatter } from "../../util/InputUtils";
+import { createCard } from "../../appRedux/features/Card";
+import { getRandomColor } from "../../util/randomColor";
 
 const NewCard = (props) => {
   const numberRef = useRef(null);
@@ -24,19 +26,33 @@ const NewCard = (props) => {
 
   // ========== formHandle ============
   const formHandle = async ({ cardNumber, year, month }) => {
-    // کارت جدید
-    const obj = card.create(props.auth.userID, cardNumber, year, month);
-    const { payload } = await props.actions.CallCoreService(obj);
-    if (payload.id > 0) {
-      // همه کارت ها
-      const obj = card.get(props.auth.userID);
-      const { payload } = await props.actions.CallCoreService(obj);
-      if (payload.id > 0) {
-        // ذخیره در ریداکس
-        props.actions.userCards(payload.data);
-        setShowAlert({ isShow: true, cardNumber });
-      }
-    }
+    if (!/\d{16}/.test(String(cardNumber)))
+      return message.error("شماره کارت را وارد نمایید");
+    if (!month) return message.error("تاریخ را وارد نمایید");
+    if (!year) return message.error("تاریخ را وارد نمایید");
+
+    const card = {
+      cardNumber: String(cardNumber).replace(/ /g, ""),
+      year: String(year),
+      month: String(month),
+      rgb: getRandomColor(),
+    };
+
+    props.actions.createCard(card);
+    props.closeModal();
+    // // کارت جدید
+    // const obj = card.create(props.auth.userID, cardNumber, year, month);
+    // const { payload } = await props.actions.CallCoreService(obj);
+    // if (payload.id > 0) {
+    //   // همه کارت ها
+    //   const obj = card.get(props.auth.userID);
+    //   const { payload } = await props.actions.CallCoreService(obj);
+    //   if (payload.id > 0) {
+    //     // ذخیره در ریداکس
+    //     props.actions.userCards(payload.data);
+    //     setShowAlert({ isShow: true, cardNumber });
+    //   }
+    // }
   };
 
   // =======================  استعلام ============================
@@ -166,7 +182,10 @@ const NewCard = (props) => {
   );
 };
 
-const actionCreators = Object.assign({}, { CallCoreService, userCards });
+const actionCreators = Object.assign(
+  {},
+  { CallCoreService, userCards, createCard }
+);
 const mapDispatchToProps = (dispatch) => ({
   actions: bindActionCreators(actionCreators, dispatch),
 });
