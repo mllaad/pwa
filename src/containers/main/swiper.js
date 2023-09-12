@@ -13,7 +13,7 @@ import { userCards } from "../../appRedux/features/Auth";
 
 // ================================== SwiperCards ====================================
 const SwiperCards = (props) => {
-  const cards = props.auth.userCards;
+  const cards = props.card.data;
 
   // get cards
   useEffect(() => {
@@ -70,6 +70,7 @@ const mapStateToProps = (state) => ({
   coreData: state.coreServices.coreData,
   coreDataState: state.coreServices.coreDataState,
   coreServiceFlow: state.coreServices.coreServiceFlow,
+  card: state.card,
 });
 
 // export default SwiperCards;

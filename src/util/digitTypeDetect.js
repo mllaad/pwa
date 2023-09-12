@@ -30,7 +30,8 @@ export const bankLogo = (cardNumber) => {
   const check = /\d{16}/.test(cardNumber);
   if (check) {
     const bankType = cardNumber.match(/^\d{6}/);
-    return Banks[bankType];
+    const logo = Banks[bankType];
+    return logo ? logo : Saman;
   } else {
     return Saman;
   }

@@ -66,7 +66,7 @@ const Card = (props) => {
   return (
     <>
       <div className={"Card " + className} onClick={clickCardHanle}>
-        <div className="Card " style={{ backgroundColor: getRandomColor() }}>
+        <div className="Card " style={{ backgroundColor: props.data.rgb }}>
           <div className="Card__icon">{bankLogo(props.data.cardNumber)}</div>
           <div className="Card__number">{cardNumber}</div>
           <div className="Card__date">
