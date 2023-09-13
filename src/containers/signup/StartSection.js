@@ -1,14 +1,16 @@
-import { Form, Button, message as messageAnt } from "antd";
+import { Form, Button, message as messageAnt, message } from "antd";
 import { logo } from "../../assets/icons";
 import "../../assets/bg.png";
 import Input from "../../components/baseComponents/Input";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import {
-  tokenAction,
-  logoutAction,
-  registerAction,
-  callGuestService,
+  // tokenAction,
+  // logoutAction,
+  // registerAction,
+  // callGuestService,
+  logIn,
+  logOut,
 } from "../../appRedux/features/Auth";
 import withRouter from "../../util/withModalRouter";
 import { useNavigate } from "react-router-dom";
@@ -16,7 +18,9 @@ import { useNavigate } from "react-router-dom";
 const StartSection = (props) => {
   const navigate = useNavigate();
   const onSubmit = async ({ userName, password }) => {
-    const response = await props.actions.tokenAction({ userName, password });
+    // const response = await props.actions.tokenAction({ userName, password });
+    props.actions.logIn();
+    message.success("درخواست با موفقیت انجام شد");
   };
 
   return (
@@ -70,10 +74,7 @@ const StartSection = (props) => {
   );
 };
 
-const actionCreators = Object.assign(
-  {},
-  { tokenAction, logoutAction, registerAction, callGuestService }
-);
+const actionCreators = Object.assign({}, { logIn, logOut });
 const mapDispatchToProps = (dispatch) => ({
   actions: bindActionCreators(actionCreators, dispatch),
 });

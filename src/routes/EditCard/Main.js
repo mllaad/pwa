@@ -129,10 +129,7 @@ const EditCard = (props) => {
   );
 };
 
-const actionCreators = Object.assign(
-  {},
-  { CallCoreService, userCards, updateCard }
-);
+const actionCreators = Object.assign({}, { CallCoreService, updateCard });
 const mapDispatchToProps = (dispatch) => ({
   actions: bindActionCreators(actionCreators, dispatch),
 });

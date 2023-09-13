@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import RepositoryApi from "../../apiCall/repository";
 import { message } from "antd";
-import { expiredToken } from "./Auth";
+// import { expiredToken } from "./Auth";
 
 const initialState = {
   coreData: {},
@@ -40,7 +40,7 @@ export const CallCoreService = createAsyncThunk(
 
     if (response.id === -401) {
       localStorage.removeItem("token");
-      dispatch(expiredToken());
+      // dispatch(expiredToken());
 
       message.error("مجوز شما منقضی می باشد, دوباره وارد شوید ");
     }

@@ -60,7 +60,7 @@ const SwiperCards = (props) => {
   );
 };
 
-const actionCreators = Object.assign({}, { CallCoreService, userCards });
+const actionCreators = Object.assign({}, { CallCoreService });
 const mapDispatchToProps = (dispatch) => ({
   actions: bindActionCreators(actionCreators, dispatch),
 });

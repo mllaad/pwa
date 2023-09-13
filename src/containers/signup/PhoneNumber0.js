@@ -8,11 +8,13 @@ import Input from "../../components/baseComponents/Input";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import {
-  tokenAction,
-  logoutAction,
-  registerAction,
-  callGuestService,
-  alreadyRigestered,
+  // tokenAction,
+  // logoutAction,
+  // registerAction,
+  // callGuestService,
+  // alreadyRigestered,
+  logIn,
+  logOut,
 } from "../../appRedux/features/Auth";
 import { useNavigate } from "react-router-dom";
 import withRouter from "../../util/withModalRouter";
@@ -36,8 +38,8 @@ const PhoneNumber0 = (props) => {
   const alreadyRigestered = async (phoneNumber) =>
     await props.actions.alreadyRigestered({ userName: phoneNumber });
 
-  const requestSMS = async (phoneNumber) =>
-    await props.actions.callGuestService(otp.get(phoneNumber));
+  const requestSMS = async (phoneNumber) => null;
+  // await props.actions.callGuestService(otp.get(phoneNumber));
 
   const onSubmit = async ({ phoneNumber, check }) => {
     if (!check) return;
@@ -134,11 +136,13 @@ const PhoneNumber0 = (props) => {
 const actionCreators = Object.assign(
   {},
   {
-    tokenAction,
-    logoutAction,
-    registerAction,
-    callGuestService,
-    alreadyRigestered,
+    // tokenAction,
+    // logoutAction,
+    // registerAction,
+    // callGuestService,
+    // alreadyRigestered,
+    logIn,
+    logOut,
   }
 );
 const mapDispatchToProps = (dispatch) => ({

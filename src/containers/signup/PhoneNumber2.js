@@ -8,11 +8,13 @@ import { connect } from "react-redux";
 import withRouter from "../../util/withModalRouter";
 import { useNavigate } from "react-router-dom";
 import {
-  tokenAction,
-  logoutAction,
-  registerAction,
-  callGuestService,
-  setPassword,
+  // tokenAction,
+  // logoutAction,
+  // registerAction,
+  // callGuestService,
+  // setPassword,
+  logOut,
+  logIn,
 } from "../../appRedux/features/Auth";
 import changePasswordObj from "../../apiCall/requestObjects/changePassword";
 
@@ -84,16 +86,7 @@ const PhoneNumber2 = (props) => {
     </>
   );
 };
-const actionCreators = Object.assign(
-  {},
-  {
-    tokenAction,
-    logoutAction,
-    registerAction,
-    callGuestService,
-    setPassword,
-  }
-);
+const actionCreators = Object.assign({}, { logIn, logOut });
 const mapDispatchToProps = (dispatch) => ({
   actions: bindActionCreators(actionCreators, dispatch),
 });

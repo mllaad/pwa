@@ -17,7 +17,7 @@ import {
 } from "../../assets/icons";
 import { useEffect } from "react";
 import { bankLogo } from "../../util/digitTypeDetect";
-import { userCards } from "../../appRedux/features/Auth";
+// import { userCards } from "../../appRedux/features/Auth";
 import { getRandomColor } from "../../util/randomColor";
 import {
   createCard,
@@ -115,7 +115,7 @@ const Card = (props) => {
 
 const actionCreators = Object.assign(
   {},
-  { CallCoreService, userCards, deleteCard, updateCard }
+  { CallCoreService, deleteCard, updateCard }
 );
 const mapDispatchToProps = (dispatch) => ({
   actions: bindActionCreators(actionCreators, dispatch),

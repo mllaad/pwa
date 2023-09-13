@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import { Spin } from "antd";
-import { checkTokenAction } from "../appRedux/features/Auth";
+// import { checkTokenAction } from "../appRedux/features/Auth";
 import { SplashScreen } from "./main/mainCompo";
 
 const Authentication = (props) => {
@@ -52,11 +52,11 @@ const Authentication = (props) => {
   }, []);
 
   // CHECK AUTHORIZE IS VALID
-  useEffect(() => {
-    // if (!props.auth.tokenIsValid) {
-    //   navigate({ pathname: "/signup" });
-    // }
-  }, [props.auth.tokenIsValid]);
+  // useEffect(() => {
+  // if (!props.auth.tokenIsValid) {
+  //   navigate({ pathname: "/signup" });
+  // }
+  // }, [props.auth.tokenIsValid]);
 
   if (showSpashScreen) return <SplashScreen />;
 
@@ -117,7 +117,7 @@ const MainNoToken = ({ isValid }) => {
   );
 };
 
-const actionCreators = Object.assign({}, { checkTokenAction });
+const actionCreators = Object.assign({}, {});
 const mapDispatchToProps = (dispatch) => ({
   actions: bindActionCreators(actionCreators, dispatch),
 });

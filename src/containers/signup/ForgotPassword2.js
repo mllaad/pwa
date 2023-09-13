@@ -22,10 +22,10 @@ const ForgotPassword2 = (props) => {
       confirmNewPassword
     );
 
-    const { payload } = await props.actions.forgotPassword(obj);
-    if (payload.id > 0) {
-      message.success("رمز عبور تغییر یافت");
-    }
+    // const { payload } = await props.actions.forgotPassword(obj);
+    // if (payload.id > 0) {
+    //   message.success("رمز عبور تغییر یافت");
+    // }
   };
 
   if (!security) {
@@ -72,7 +72,7 @@ const ForgotPassword2 = (props) => {
   );
 };
 
-const actionCreators = Object.assign({}, { forgotPassword });
+const actionCreators = Object.assign({}, {});
 const mapDispatchToProps = (dispatch) => ({
   actions: bindActionCreators(actionCreators, dispatch),
 });

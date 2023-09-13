@@ -8,7 +8,7 @@ import { useState } from "react";
 import { footer } from "../../assets/footer/footer";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { logoutAction } from "../../appRedux/features/Auth";
+import { logOut } from "../../appRedux/features/Auth";
 import { Drawer, message } from "antd";
 import { BackUp, Exit, Notif, Section } from "./mainCompo";
 import SwiperCards from "./swiper";
@@ -59,10 +59,11 @@ const Main = (props) => {
   // خروج کاربر
   const signOutHandle = async () => {
     setIsExit(false);
-    const response = await props.actions.logoutAction(props.auth.token);
-    if (response.payload.id > 0) {
-      message.success("کاربر خارج شد");
-    }
+    props.actions.logOut();
+    // const response = await props.actions.logoutAction(props.auth.token);
+    // if (response.payload.id > 0) {
+    //   message.success("کاربر خارج شد");
+    // }
   };
 
   return (
@@ -196,7 +197,7 @@ const Main = (props) => {
   );
 };
 
-const actionCreators = Object.assign({}, { logoutAction, CallCoreService });
+const actionCreators = Object.assign({}, { CallCoreService, logOut });
 const mapDispatchToProps = (dispatch) => ({
   actions: bindActionCreators(actionCreators, dispatch),
 });

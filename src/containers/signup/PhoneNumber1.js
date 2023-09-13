@@ -34,7 +34,8 @@ const PhoneNumber1 = (props) => {
   // چک اس ام اس
   const smsCheck = async (codeVER) => {
     const obj = otp.check(userId, codeVER);
-    return await props.actions.callGuestService(obj);
+    // return await props.actions.callGuestService(obj);
+    return null;
   };
 
   // ثبت شماره در سرور
@@ -76,11 +77,11 @@ const PhoneNumber1 = (props) => {
   const callSMSHandle = async () => {
     if (time === "0:00") return;
     const obj = otp.get(phoneNumber);
-    const { payload } = await props.actions.callGuestService(obj);
-    if (payload.id > 0) {
-      message.success(payload.message);
-      setTime("02:00");
-    }
+    // const { payload } = await props.actions.callGuestService(obj);
+    // if (payload.id > 0) {
+    //   message.success(payload.message);
+    //   setTime("02:00");
+    // }
   };
 
   if (!security) {
@@ -145,10 +146,7 @@ const PhoneNumber1 = (props) => {
   );
 };
 
-const actionCreators = Object.assign(
-  {},
-  { tokenAction, logoutAction, registerAction, callGuestService }
-);
+const actionCreators = Object.assign({}, {});
 const mapDispatchToProps = (dispatch) => ({
   actions: bindActionCreators(actionCreators, dispatch),
 });

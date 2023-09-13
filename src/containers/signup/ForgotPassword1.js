@@ -5,7 +5,7 @@ import { useState } from "react";
 import { logo } from "../../assets/icons";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import { callGuestService, forgotPassword } from "../../appRedux/features/Auth";
+import { logIn, logOut } from "../../appRedux/features/Auth";
 import otp from "../../apiCall/requestObjects/otp";
 import withRouter from "../../util/withModalRouter";
 import timer from "../../util/timer";
@@ -27,20 +27,20 @@ const ForgotPassword1 = (props) => {
 
   const formHandle = async (f) => {
     const obj = otp.check(id, f.otp);
-    const { payload } = await props.actions.callGuestService(obj);
-    if (payload.id > 0) {
-      navigate("../ForgotPassword2", { state: { userName, security: true } });
-    }
+    // const { payload } = await props.actions.callGuestService(obj);
+    // if (payload.id > 0) {
+    //   navigate("../ForgotPassword2", { state: { userName, security: true } });
+    // }
   };
 
   const callSMSHandle = async () => {
     if (time === "0:00") return;
     const obj = otp.get(userName);
-    const { payload } = await props.actions.callGuestService(obj);
-    if (payload.id > 0) {
-      message.success(payload.message);
-      setTime("02:00");
-    }
+    // const { payload } = await props.actions.callGuestService(obj);
+    // if (payload.id > 0) {
+    //   message.success(payload.message);
+    //   setTime("02:00");
+    // }
   };
 
   if (!security) {
@@ -96,7 +96,7 @@ const ForgotPassword1 = (props) => {
   );
 };
 
-const actionCreators = Object.assign({}, { forgotPassword, callGuestService });
+const actionCreators = Object.assign({}, {});
 const mapDispatchToProps = (dispatch) => ({
   actions: bindActionCreators(actionCreators, dispatch),
 });
