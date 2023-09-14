@@ -48,7 +48,7 @@ const Authentication = (props) => {
     //   : localStorage.getItem("token");
     // props.actions.checkTokenAction(token);
 
-    return () => props.navigate(0);
+    // return () => props.navigate(0);
   }, []);
 
   // CHECK AUTHORIZE IS VALID
@@ -65,7 +65,7 @@ const Authentication = (props) => {
       {/* {props.coreServices.promiseState === "pending" && <ShowPending />}
       {props.auth.authState === "pending" && <ShowPending />} */}
 
-      {props.auth.tokenIsValid ? (
+      {props.auth.isLogedIn ? (
         <Main />
       ) : (
         <Routes>

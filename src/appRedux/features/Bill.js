@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, current } from "@reduxjs/toolkit";
 
 const randomDate = () =>
   new Date(new Date(String(Math.floor(Math.random() * 10000))));
@@ -175,26 +175,37 @@ const billSlice = createSlice({
   initialState,
   reducers: {
     createBill: (state, { payload }) => {
-      const yes = state.data.map((data) => {
-        // return data.typeID === payload.rootID ? payload : data;
-        if (data.typeID === payload.rootID) {
-          return data.map((obj) => {
-            const s = obj;
-            return s;
-          });
-        } else {
-          return data;
-        }
-      });
-      state.data.data = [...state.data, payload];
+      state.data = state.data.map((data) =>
+        data.typeID === payload.rootID
+          ? { ...data, data: [...data.data, { ...payload }] }
+          : data
+      );
     },
     updateBill: (state, { payload }) => {
-      state.data = state.data.map((data) => {
-        return data.cardNumber === payload.cardNumber ? payload : data;
-      });
+      state.data = state.data.map((data) =>
+        data.typeID === payload.rootID
+          ? {
+              ...data,
+              data: [
+                ...data.data.map((_data) =>
+                  _data.billID === payload.billID ? { ...payload } : data
+                ),
+              ],
+            }
+          : data
+      );
     },
     deleteBill: (state, { payload }) => {
-      state.data = state.data.filter((data) => data.cardNumber !== payload);
+      state.data = state.data.map((data) =>
+        data.typeID === payload.rootID
+          ? {
+              ...data,
+              data: [
+                ...data.data.filter((_data) => _data.billID !== payload.id),
+              ],
+            }
+          : data
+      );
     },
   },
 });

@@ -7,20 +7,21 @@ import { CallCoreService } from "../../appRedux/features/CoreService";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import withRouter from "../../util/withModalRouter";
-import { createBill } from "../../appRedux/features/Bill";
+import { createBill, updateBill } from "../../appRedux/features/Bill";
+import { toPersianDigits } from "../../util/translateCurrency";
 
 const NewBill = (props) => {
   const backHandle = () => props.backModal();
   const { isCreate, id, senderUserId } = props.router.location.state;
+
   const billID = props.router.location.state?.billID;
   const billType = props.router.location.state?.billType;
   const billName = props.router.location.state?.billName;
   const bill = props.bill;
 
-  const formHandle = async ({ title, traceNumber, check }) => {
-    console.log(billID);
-    console.log(billType);
+  console.log(bill, "BILLL");
 
+  const formHandle = async ({ title, traceNumber, check }) => {
     const randomDate = () =>
       new Date(new Date(String(Math.floor(Math.random() * 10000))));
 
@@ -28,18 +29,22 @@ const NewBill = (props) => {
       Math.floor(10000000000 + Math.random() * 90000000000);
 
     if (!check) return;
-    // const userid = props.auth.userID;
-
     const bill = {
       rootID: billType,
-      name: "test",
-      billID: randomNumber(),
+      name: title,
+      billID: traceNumber,
       paymentID: randomNumber(),
       amount: randomNumber(),
       currentDate: randomDate(),
       paymentDate: randomDate(),
-    };
-    props.actions.createBill(bill);
+    }; // const userid = props.auth.userID;
+
+    if (isCreate) {
+      props.actions.createBill(bill);
+    } else {
+      props.actions.updateBill(bill);
+    }
+
     props.navigateByState("../BillList", {
       billType: billType,
     });
@@ -132,7 +137,10 @@ const NewBill = (props) => {
   );
 };
 
-const actionCreators = Object.assign({}, { CallCoreService, createBill });
+const actionCreators = Object.assign(
+  {},
+  { CallCoreService, createBill, updateBill }
+);
 const mapDispatchToProps = (dispatch) => ({
   actions: bindActionCreators(actionCreators, dispatch),
 });

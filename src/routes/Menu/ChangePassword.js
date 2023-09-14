@@ -5,7 +5,7 @@ import { Form, Button, message } from "antd";
 import withRouter from "../../util/withModalRouter";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import { changePassword } from "../../appRedux/features/Auth";
+import { logIn, logOut } from "../../appRedux/features/Auth";
 import changePasswordObj from "../../apiCall/requestObjects/changePassword";
 
 const ChangePassword = (props) => {
@@ -82,7 +82,7 @@ const ChangePassword = (props) => {
   );
 };
 
-const actionCreators = Object.assign({}, { changePassword });
+const actionCreators = Object.assign({}, { logIn, logOut });
 const mapDispatchToProps = (dispatch) => ({
   actions: bindActionCreators(actionCreators, dispatch),
 });

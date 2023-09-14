@@ -11,6 +11,7 @@ import {
   raitelIcon,
   irancelIcon,
 } from "../../assets/icons";
+
 import {
   water,
   electricity,
@@ -21,12 +22,16 @@ import {
 import { withRouter } from "../../util/withModalRouter";
 import { toPersianDigits } from "../../util/translateCurrency";
 import { justToFarsi } from "../../util/translateDigit";
+import { deleteBill } from "../../appRedux/features/Bill";
 const BillList = (props) => {
   const backHandle = () => props.backModal();
 
-  const { data, billType } = props.router.location.state;
+  const billType = props.router.location.state?.billType;
+  const data = props.router.location.state?.data;
 
   const _data = props.bill.data.find((obj) => obj.typeID === billType);
+
+  console.log(props.bill);
 
   // ================================== قبض جدید =============================================
   const addBillHandle = () =>
@@ -124,40 +129,44 @@ const BillList = (props) => {
   };
 
   // ============================== حذف قبض =======================================
-  const deleteHandle = (id) => async (e) => {
-    const { actionType, jsonValues, objectId, type } = bill.delete(id);
-    const { payload } = await props.actions.CallCoreService({
-      server: 0,
-      objectId,
-      actionType,
-      jsonValues,
-      type,
+  const deleteHandle = (id, rootID) => async (e) => {
+    props.actions.deleteBill({ id, rootID });
+    return;
+    props.changeRouterState({
+      billType: billType,
     });
+    // const { actionType, jsonValues, objectId, type } = bill.delete(id);
+    // const { payload } = await props.actions.CallCoreService({
+    //   server: 0,
+    //   objectId,
+    //   actionType,
+    //   jsonValues,
+    //   type,
+    // });
 
-    if (payload.id < 0) return message.error(payload.message);
-    {
-      const { server, objectId, actionType, jsonValues, type } = bill.get(
-        props.auth.userID,
-        billType
-      );
+    // if (payload.id < 0) return message.error(payload.message);
+    // {
+    //   const { server, objectId, actionType, jsonValues, type } = bill.get(
+    //     props.auth.userID,
+    //     billType
+    //   );
 
-      const { payload } = await props.actions.CallCoreService({
-        server,
-        objectId,
-        actionType,
-        jsonValues,
-        type,
-      });
+    // const { payload } = await props.actions.CallCoreService({
+    //   server,
+    //   objectId,
+    //   actionType,
+    //   jsonValues,
+    //   type,
+    // });
 
-      if (payload.id > 0) {
-        props.changeRouterState({
-          data: payload.data,
-          billType: billType,
-        });
-      } else {
-        message.error(payload.message);
-      }
-    }
+    // if (payload.id > 0) {
+    //   props.changeRouterState({
+    //     data: payload.data,
+    //     billType: billType,
+    //   });
+    // } else {
+    //   message.error(payload.message);
+    // }
   };
 
   // ******!!! CAN BE A BUG !!!********
@@ -197,7 +206,7 @@ const BillList = (props) => {
                   </span>
                   <span
                     className="BillItem__trash"
-                    onClick={deleteHandle(item.billID)}
+                    onClick={deleteHandle(item.billID, item.rootID)}
                   >
                     {deleteIcon}
                   </span>
@@ -231,7 +240,7 @@ const BillList = (props) => {
   );
 };
 
-const actionCreators = Object.assign({}, { CallCoreService });
+const actionCreators = Object.assign({}, { deleteBill });
 const mapDispatchToProps = (dispatch) => ({
   actions: bindActionCreators(actionCreators, dispatch),
 });

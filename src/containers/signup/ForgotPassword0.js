@@ -16,13 +16,14 @@ const ForgotPassword0 = (props) => {
     const obj = otp.get(userName);
     // const { payload } = await props.actions.callGuestService(obj);
     // if (pa) {
-    navigate("../ForgotPassword1", {
-      state: {
-        id: payload.traceMessage.id,
-        userName,
-        security: true,
-      },
-    });
+    navigate("../ForgotPassword1");
+    // , {
+    // state: {
+    //   id: payload.traceMessage.id,
+    //   userName,
+    //   security: true,
+    // },
+    // });
     // }
   };
 

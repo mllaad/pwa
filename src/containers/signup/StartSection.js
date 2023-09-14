@@ -4,14 +4,7 @@ import "../../assets/bg.png";
 import Input from "../../components/baseComponents/Input";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import {
-  // tokenAction,
-  // logoutAction,
-  // registerAction,
-  // callGuestService,
-  logIn,
-  logOut,
-} from "../../appRedux/features/Auth";
+import { logIn, logOut } from "../../appRedux/features/Auth";
 import withRouter from "../../util/withModalRouter";
 import { useNavigate } from "react-router-dom";
 
