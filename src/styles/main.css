@@ -830,7 +830,7 @@
     height: 65px;
   }
   .Icon__text {
-    font-size: 16px;
+    font-size: var(--fontSmall);
   }
 }
 @media screen and (max-width: 375px) {
@@ -844,7 +844,7 @@
     height: 55px;
   }
   .Icon__text {
-    font-size: 14px;
+    font-size: var(--fontExtraSmall);
   }
 }
 @media screen and (max-width: 320px) {
@@ -858,7 +858,7 @@
     height: 45px;
   }
   .Icon__text {
-    font-size: 12px;
+    font-size: var(--fontExtraSmall);
   }
   .gridmain--span2 svg,
   .gridmain--span2 .Icon__svg {

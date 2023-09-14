@@ -30,7 +30,7 @@ const Violation = (props) => {
           <span className="gridsvg">{violationAll}</span>
           <span className="textsvg">مجموع خلافی</span>
         </div>
-        <div
+        {/* <div
           className="violation__grid-item"
           style={{ backgroundColor: "black" }}
           onClick={clickHandle("")}
@@ -53,7 +53,7 @@ const Violation = (props) => {
         >
           <span className="gridsvg">{violationList}</span>
           <span className="textsvg">لیست استعلام ها</span>
-        </div>
+        </div> */}
       </div>
     </>
   );
