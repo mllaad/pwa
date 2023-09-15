@@ -6,6 +6,7 @@ import { authReducer } from "../features/Auth";
 import { coreServiceReducer } from "../features/CoreService";
 import { cardReducer } from "../features/Card";
 import { billReducer } from "../features/Bill";
+import { violationReducer } from "../features/Violation";
 // redux-first-history github => https://github.com/salvoravida/redux-first-history
 // ++++++++++++++++++++++++++++++++++++++++
 // his solution might not work with the new RRDv6.4 Data APIs.
@@ -22,6 +23,7 @@ export const store = configureStore({
     coreServices: coreServiceReducer,
     card: cardReducer,
     bill: billReducer,
+    vio: violationReducer,
   }),
   // all default middlewares plus ...
   middleware: (getDefaultMiddleware) =>

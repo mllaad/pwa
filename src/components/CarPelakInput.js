@@ -9,6 +9,15 @@ const CarPelakInput = ({ onCompelete }) => {
     save = { ...save, [type]: e.value || e };
     if (
       save[1]?.length === 2 &&
+      // save[2]?.length === 1 &&
+      save[3]?.length === 3 &&
+      save[4]?.length === 2
+    ) {
+      save[2] = "الف";
+      onCompelete(save);
+    }
+    if (
+      save[1]?.length === 2 &&
       save[2]?.length === 1 &&
       save[3]?.length === 3 &&
       save[4]?.length === 2

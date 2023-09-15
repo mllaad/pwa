@@ -33,10 +33,10 @@ const NewBill = (props) => {
       rootID: billType,
       name: title,
       billID: traceNumber,
-      paymentID: randomNumber(),
-      amount: randomNumber(),
-      currentDate: randomDate(),
-      paymentDate: randomDate(),
+      // paymentID: randomNumber(),
+      // amount: randomNumber(),
+      // currentDate: randomDate(),
+      // paymentDate: randomDate(),
     }; // const userid = props.auth.userID;
 
     if (isCreate) {

@@ -9,23 +9,20 @@ import { bindActionCreators } from "redux";
 const VioAllResult = (props) => {
   const backHandle = () => props.navigate("../Violation1");
 
-  const type = true;
-
   const clickHandle = () => props.navigate("../../Payment");
+
+  const obj = props.router.location.state;
 
   return (
     <>
       <Header onBack={backHandle} title={"مجموع خلافی"} />
       <div className="vioallresult">
-        {type ? (
-          <PelakCar value={["13", "الف", "141", "19"]} />
+        {obj.type === 1 ? (
+          <PelakCar value={[...obj.pelak]} />
         ) : (
-          <PelakMotor value={["122", "1331"]} />
+          <PelakMotor value={[...obj.pelak]} />
         )}
-        <span className="vioallresult__title">
-          {" "}
-          {type ? "ماشین من" : "موتور من"}{" "}
-        </span>
+        <span className="vioallresult__title"> {obj.name}</span>
       </div>
       <div className="vioallresult__content">
         <div className="vioallresult__content--black">

@@ -43,7 +43,8 @@ const InternetOption = (props) => {
           </div>
           <div className="InternetOption__list">
             {arrayNum.map(() => {
-              const val = Math.floor(Math.random() * 10000000) + 1;
+              const val = "";
+              // Math.floor(Math.random() * 10000000) + 1;
               return (
                 <div
                   className="InternetOption__list-item"

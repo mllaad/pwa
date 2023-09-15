@@ -2,17 +2,22 @@ import { pelak } from "../assets/pelak";
 import { motorPelak } from "../assets/motorPelak";
 import { editIcon, deleteIcon } from "../assets/icons";
 import { justToEnglish, justToFarsi } from "../util/translateDigit";
-export const PelakSetting = ({ onDelete, onEdit, onSelect, type, value }) => {
+export const PelakSetting = ({
+  onDelete,
+  onEdit,
+  onSelect,
+  type,
+  value,
+  name,
+}) => {
   return (
     <div className="PelakSetting">
-      <div className="PelakSetting__title">
-        {type ? "موتور من" : "ماشین من"}
-      </div>
+      <div className="PelakSetting__title">{name}</div>
       <div className="PelakSetting__setting">
         <div className="PelakSetting__edit" onClick={onEdit}>
           {editIcon}
         </div>
-        <div className="PelakSetting__remove" onClick={onDelete}>
+        <div className="PelakSetting__remove" onClick={() => onDelete(name)}>
           {deleteIcon}
         </div>
       </div>
