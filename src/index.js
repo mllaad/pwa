@@ -4,7 +4,7 @@ import Authentication from "./containers/";
 import { Provider } from "react-redux";
 import { store, history } from "./appRedux/store/index";
 import { HistoryRouter } from "redux-first-history/rr6";
-
+import { Input } from "antd";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
@@ -13,6 +13,15 @@ root.render(
     {/* have BrowserRouter in its default */}
     <HistoryRouter history={history}>
       <Authentication />
+      {/* <Input.Password
+        placeholder="input password"
+        visibilityToggle={
+          {
+            // visible: passwordVisible,
+            // onVisibleChange: setPasswordVisible,
+          }
+        }
+      /> */}
     </HistoryRouter>
   </Provider>
   // </React.StrictMode>

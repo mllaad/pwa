@@ -32,6 +32,7 @@ const SwiperCards = (props) => {
         spaceBetween={1}
         centeredSlides={true}
         onSlideChange={(e) => null}
+        initialSlide={2}
         className="mySwiper mainSiwper"
       >
         {/* =====================  کارت جدید ======================== */}

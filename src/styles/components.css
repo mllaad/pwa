@@ -33,7 +33,7 @@
   padding: 40px 10px 10px 10px;
   border-radius: var(--medium);
   display: flex;
-  align-items: end;
+  align-items: flex-end;
   position: relative;
   justify-content: space-between;
 }
@@ -395,7 +395,7 @@
 .checkBox_wrapper {
   display: flex;
   justify-content: center;
-  align-items: start;
+  align-items: flex-start;
 }
 .checkBox_wrapper__label {
   font-size: 1rem;
@@ -504,7 +504,7 @@
   top: 50%;
   right: 50%;
   transform: translate(50%, -50%);
-  font-size: 20px;
+  font-size: 18px;
   width: 100%;
   text-align: center;
 }
@@ -513,7 +513,6 @@
   position: absolute;
   bottom: 10px;
   right: 20px;
-  font-size: 20px;
   font-size: 17px;
 }
 
@@ -545,7 +544,7 @@
 .Card__UnderCard {
   position: absolute;
   right: 50%;
-  bottom: 0px;
+  bottom: -0px;
   transform: translate(50%, 0%);
   display: flex;
   justify-content: space-evenly;
@@ -573,7 +572,7 @@
 
 @media screen and (max-width: 768px) {
 }
-@media screen and (max-height: 720px) and (min-aspect-ratio: 3/4) {
+/* @media screen and (max-height: 720px) and (min-aspect-ratio: 3/4) {
   .Card__UnderCard {
     padding: 0px;
     bottom: 17px;
@@ -584,7 +583,7 @@
     width: 30px;
     height: 30px;
   }
-}
+} */
 @media screen and (max-width: 425px) {
   .Card {
     border-radius: var(--small);
@@ -946,7 +945,7 @@
 
 .footer {
   display: grid;
-  align-items: end;
+  align-items: flex-end;
   width: 100%;
   position: absolute;
   bottom: 10px;

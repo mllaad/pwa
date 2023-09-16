@@ -184,7 +184,7 @@ body {
   display: flex;
   flex-direction: row-reverse;
   align-items: center;
-  justify-content: end;
+  justify-content: flex-end;
   /* font-family: 'IRANSans'; */
   padding-bottom: 40px;
 }
@@ -257,15 +257,20 @@ body {
   }
   .gridmain .icon__svg,
   .gridmain .icon__svg svg {
-    width: 45px !important;
-    height: 45px !important;
+    /* width: 35px !important;
+    height: 35px !important; */
+  }
+  .Icon__svg و .Icon__svg svg {
+    width: 30px !important;
+    height: 30px !important;
   }
   /* .gridmain .icon__svg svg{
         width: 45px !important;
         height: 45px !important;
     } */
+
   .gridmain .icon__text {
-    font-size: 0.7rem;
+    font-size: var(--fontExtraSmall);
     margin-top: 5px;
     font-weight: 100;
   }
@@ -276,7 +281,7 @@ body {
 .center {
   display: grid;
   grid-template-columns: 1fr 60px;
-  justify-items: end;
+  justify-items: flex-end;
   text-align: center;
   margin: auto;
   align-items: center;
@@ -315,7 +320,7 @@ body {
   overflow: hidden;
 }
 .home__container {
-  max-width: 550px;
+  max-width: 450px;
   width: 95%;
   height: 100vh;
   /* padding: 2vh 0px;  */
@@ -408,7 +413,6 @@ body {
   display: flex;
   justify-content: space-around;
 }
-
 .white-btn {
   background-color: #ffffff;
   color: #0554f2;
@@ -428,6 +432,29 @@ body {
   text-align: center !important;
   font-size: 14px !important;
 }
+@media screen and (max-width: 768px) {
+}
+@media screen and (max-height: 720px) and (min-aspect-ratio: 3/4) {
+}
+@media screen and (max-width: 425px) {
+}
+@media screen and (max-width: 375px) {
+}
+@media screen and (max-width: 320px) {
+  .alert__container p {
+    margin: 5px 0px 20px 0px;
+    font-size: var(--fontExtraSmall);
+  }
+  .blue-btn,
+  .white-btn {
+    height: 30px;
+    font-size: 14px !important;
+    line-height: 1;
+    border-radius: 10px;
+    margin: 0px 5px 0px 5px;
+  }
+}
+
 .blue-btn span,
 .white-btn span {
   font-size: 14px !important;
@@ -435,6 +462,16 @@ body {
 
 .s {
   transition: 1s all;
+}
+
+@supports (
+  (-webkit-backdrop-filter: blur(2em)) or (backdrop-filter: blur(2em))
+) {
+  .backdrop-blur {
+    background-color: rgba(255, 255, 255, 0.5);
+    -webkit-backdrop-filter: blur(2em);
+    backdrop-filter: blur(2em);
+  }
 }
 @keyframes inAnimation {
   0% {
@@ -572,7 +609,7 @@ body {
 }
 
 .expand_black {
-  justify-self: end;
+  justify-self: flex-end;
   font-size: 0.85rem !important;
 }
 .expand_blue svg {
@@ -638,6 +675,11 @@ body {
 .addinventory__wallet-icon svg {
   fill: red !important;
   color: red;
+}
+.Icon,
+.Icon svg {
+  width: 70px;
+  height: 70px;
 }
 
 .payment_card {
@@ -1131,7 +1173,7 @@ body {
 
 .expand_green {
   color: #038c25;
-  justify-self: end;
+  justify-self: flex-end;
   font-size: 1.1rem;
   font-weight: 600;
   display: flex;
@@ -1139,7 +1181,7 @@ body {
 }
 .expand_red {
   color: #d90416;
-  justify-self: end;
+  justify-self: flex-end;
   margin-right: 15px;
   font-size: 1.1rem !important;
   font-weight: 600;
@@ -1297,15 +1339,25 @@ body {
     font-size: var(--fontMedium);
     width: 70%;
   }
+  .Icon,
+  .Icon svg {
+    width: 50px;
+    height: 50px;
+  }
 }
 @media screen and (max-width: 320px) {
   .PelakDetail__btn {
     height: var(--extraSmallHeight);
     width: 100%;
   }
+  .Icon,
+  .Icon svg {
+    width: 50px;
+    height: 50px;
+  }
 }
 .expand_viodetaillist {
-  justify-self: end;
+  justify-self: flex-end;
   display: flex;
   width: 130px;
   justify-content: space-between;
@@ -1379,7 +1431,7 @@ body {
   .center {
     display: grid;
     grid-template-columns: 1fr 30px;
-    justify-items: end;
+    justify-items: flex-end;
     text-align: center;
     margin: auto;
     align-items: center;
@@ -2477,6 +2529,17 @@ input:focus-visible {
 }
 .Clipboard__text {
   font-size: 0.85rem;
+}
+
+@media screen and (max-width: 768px) {
+}
+@media screen and (max-height: 720px) and (min-aspect-ratio: 3/4) {
+}
+@media screen and (max-width: 425px) {
+}
+@media screen and (max-width: 375px) {
+}
+@media screen and (max-width: 320px) {
 }
 
 /* ----------------------------------------------- Expandable__topic --------------------------------- */

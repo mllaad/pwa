@@ -3,22 +3,24 @@ import Header from "../../components/Header";
 import CheckPaymentType from "../../components/PaymentType";
 import withRouter from "../../util/withModalRouter";
 import { connect } from "react-redux";
-import { simCardName } from "../../util/digitTypeDetect";
+// import { simCardName } from "../../util/digitTypeDetect";
 import { justToEnglish, justToFarsi } from "../../util/translateDigit";
 import { digitToTomanCurrency } from "../../util/translateCurrency";
-import {
-  shatelIcon,
-  irancelIcon,
-  raitelIcon,
-  hamrahAvalIcon,
-} from "../../assets/icons";
+
 import objsvg from "../../assets/objsvg";
+import // hamrahAvalIcon,
+// irancelIcon,
+// raitelIcon,
+// shatelIcon,
+"../../assets/icons";
 
 const PaymentType = (props) => {
   const backHandle = () => props.navigate(-1);
 
   const data = { ...props.router.location.state };
 
+  console.log(objsvg, "objsvg");
+  console.log(data, "data");
   // =============== go to payment or get result ====================
   const selectHandle = (e) => {
     if (e === "wallet") {

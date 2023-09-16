@@ -25,6 +25,22 @@ const InternetOption = (props) => {
     { name: "روزانه" },
   ];
   const arrayNum = Array(10).fill(0);
+
+  const clickHandle = (val) => {
+    console.log(val);
+    const type = {
+      irancell: "شارژ ایرانسل",
+      shatel: "شارژ شاتل",
+      hamrahaval: "شارژ همراه اول",
+      raitel: "شارژ رایتل",
+    };
+    props.navigateByState("../../Payment", {
+      header_1: phoneNumber,
+      header_2: type[tarabari],
+      logo: tarabari,
+      price: val,
+    });
+  };
   return (
     <>
       <Header onBack={onCancel} title={"لیست بسته های اینترنتی"} />
@@ -42,20 +58,13 @@ const InternetOption = (props) => {
             ))}
           </div>
           <div className="InternetOption__list">
-            {arrayNum.map(() => {
-              const val = "";
-              // Math.floor(Math.random() * 10000000) + 1;
+            {arrayNum.map((ar, k) => {
+              const val = Math.floor(Math.random() * 10000000) + 1;
               return (
                 <div
+                  key={k}
                   className="InternetOption__list-item"
-                  onClick={() =>
-                    props.navigateByState("../../Payment", {
-                      phoneNumber,
-                      tarabari,
-                      checkBoxs,
-                      price: val,
-                    })
-                  }
+                  onClick={() => clickHandle(val)}
                 >
                   <div className="InternetOption__list--price">
                     {digitToTomanCurrency(val)} تومان

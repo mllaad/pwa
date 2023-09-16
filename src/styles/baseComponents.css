@@ -199,8 +199,8 @@
   /* font-size: 18px !important; */
   height: 29px !important;
   display: flex !important;
-  align-items: start !important;
-  justify-content: end !important;
+  align-items: flex-start !important;
+  justify-content: flex-end !important;
   font-size: var(--fontLarge) !important;
 }
 .default__InputNumber {
@@ -330,8 +330,8 @@
   font-size: 17px !important;
   height: 29px !important;
   display: flex !important;
-  align-items: start !important;
-  justify-content: end !important;
+  align-items: flex-start !important;
+  justify-content: flex-end !important;
 }
 /* .default__input-wrraper .ant-form-item-explain-error {
   position: absolute !important;

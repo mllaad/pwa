@@ -13,6 +13,7 @@ const Internet = (props) => {
   const onCancel = () => navigate("/Internet", { state: { modal: false } });
 
   const formHandle = ({ phoneNumber, tarabari, ...checkBoxs }) => {
+    console.log(tarabari, "tarabari");
     if (!phoneNumber) {
       message.error("شماره تلفن را وارد نمایید");
       return;

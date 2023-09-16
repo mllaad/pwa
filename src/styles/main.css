@@ -339,6 +339,7 @@
     font-size: var(--fontExtraSmall);
   }
   .payenttype__info {
+    width: 200px;
     grid-template-rows: 20px 20px;
   }
   .payenttype__uppertext {
@@ -346,8 +347,8 @@
   }
   .payenttype__icon svg,
   .payenttype__icon {
-    width: 45px;
-    height: 45px;
+    width: 30px;
+    height: 30px;
   }
   .payenttype__icon {
     margin-left: 10px;
@@ -377,7 +378,7 @@
 
 .PaymentRequest__wrap {
   display: flex;
-  align-items: end;
+  align-items: flex-end;
   display: grid;
   grid-template-columns: 25% 70%;
   justify-content: space-between;
@@ -1131,7 +1132,7 @@
 .Menu__header {
   display: flex;
   align-items: center;
-  justify-content: end;
+  justify-content: flex-end;
   border-bottom: 1px solid black;
   position: relative;
   padding: 10px 20px;
@@ -1145,7 +1146,7 @@
 } */
 .Menu__item {
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   align-items: center;
   border-bottom: 1px solid #cccccc;
   padding: 10px 20px;
@@ -1249,7 +1250,7 @@
 .Notice__header {
   display: flex;
   align-items: center;
-  justify-content: end;
+  justify-content: flex-end;
   border-bottom: 1px solid black;
   position: relative;
   padding: 10px 20px;
@@ -1259,7 +1260,7 @@
   margin-right: 15px;
 }
 .Notice__item {
-  justify-content: end;
+  justify-content: flex-end;
   align-items: center;
   border-bottom: 1px solid #cccccc;
   padding: 10px 20px;
@@ -1739,6 +1740,8 @@
   overflow: scroll;
   height: 95%;
   padding: 0 0px 0px 0;
+  scrollbar-width: thin;
+  scrollbar-color: #041b73 transparent;
 }
 
 .gridSection__space {
@@ -1747,6 +1750,7 @@
 }
 
 /* width */
+
 ::-webkit-scrollbar {
   width: 3px;
   border-radius: 5px;
@@ -1887,7 +1891,7 @@
   width: 100%;
   margin: auto auto 0 auto;
   background-color: white;
-  max-width: 550px;
+  max-width: 455px;
 }
 
 @keyframes modal__containerIn {
@@ -2114,7 +2118,7 @@
 .BillItem__idNumber {
   font-size: 17px;
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   margin-right: 8px;
   /* margin-top: 40px; */
 }
@@ -2699,7 +2703,7 @@
 .NewBill__checkbox {
   display: flex;
   align-items: center;
-  justify-content: end;
+  justify-content: flex-end;
 }
 
 .NewBill__link {
@@ -2766,6 +2770,7 @@
   display: flex;
   justify-content: center !important;
   align-items: center !important;
+  -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
   /* background-color: red; */
   z-index: 999;
@@ -2788,7 +2793,7 @@
 }
 .Estelam__title {
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   margin: 20px 0px;
 }
 .Estelam__title span {
@@ -2822,7 +2827,7 @@
 }
 .Estelam__2 {
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   align-items: center;
 }
 .Estelam__2svg,
@@ -2864,7 +2869,7 @@
 }
 .Estelam__pic {
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   margin-top: 20px;
 }
 .Estelam__pic span {
@@ -3596,4 +3601,20 @@
 @media screen and (max-width: 375px) {
 }
 @media screen and (max-width: 320px) {
+}
+
+/* ============================== */
+.backdrop-blur {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+/* if backdrop support: very transparent and blurred */
+@supports (
+  (-webkit-backdrop-filter: blur(2em)) or (backdrop-filter: blur(2em))
+) {
+  .backdrop-blur {
+    background-color: rgba(255, 255, 255, 0.5);
+    -webkit-backdrop-filter: blur(2em);
+    backdrop-filter: blur(2em);
+  }
 }

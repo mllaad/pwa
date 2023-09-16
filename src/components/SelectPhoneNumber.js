@@ -59,10 +59,16 @@ const SelectPhoneNumber = ({ onSelect, labels }) => {
       // autocomplete
       case "phoneNumber":
         setActiveIcon(simCardName(justToEnglish(field.phoneNumber)));
+
+        form.setFieldValue(
+          "tarabari",
+          simCardName(justToEnglish(field.phoneNumber))
+        );
         break;
       // icons
       case "tarabari":
         setActiveIcon(field.tarabari);
+        form.setFieldValue("tarabari", field.tarabari);
         break;
       //  checkbox
       default:
@@ -105,7 +111,7 @@ const SelectPhoneNumber = ({ onSelect, labels }) => {
         {/* ============================ */}
         <div className="selectPhoneNumber__groupCheckbox">
           {labels.map((label) => (
-            <div className="selectPhoneNumber__checkgroup">
+            <div key={label} className="selectPhoneNumber__checkgroup">
               <CheckBox formItemOption={{ name: `checkBox-${label}` }} />
               <span className="">{label}</span>
             </div>

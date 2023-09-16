@@ -95,7 +95,8 @@ export const grid = [
   {
     text: "عوارض",
     svg: raphael_car_2,
-    path: "Tax",
+    path: "",
+    // path: "Tax",
   },
   {
     text: "جشنواره ها",
