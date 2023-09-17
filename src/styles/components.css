@@ -498,6 +498,7 @@
   position: relative;
   transition: 0.4s all;
   scale: 1.02;
+  cursor: grab;
 }
 .Card__icon {
   position: absolute;

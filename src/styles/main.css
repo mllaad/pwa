@@ -801,6 +801,7 @@
   text-align: center;
   width: 100%;
   height: 91px;
+  cursor: pointer;
 }
 .Icon__svg {
   margin: auto;
@@ -1145,12 +1146,10 @@
   padding: 10px 20px;
   margin-left: auto;
 }
-
 .Menu__number {
   margin-right: 15px;
 }
-/* .Menu__profile {
-} */
+/* .Menu__profile */
 .Menu__item {
   display: flex;
   justify-content: flex-end;
