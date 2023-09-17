@@ -1159,12 +1159,7 @@ body {
   align-self: center;
   margin-bottom: 10px;
 }
-.el_orange {
-  color: #ff8b00;
-  font-size: 0.85rem;
 
-  /* width: 500px !important; */
-}
 .allbillslist_inner {
   display: flex;
   justify-content: space-between;
@@ -2660,4 +2655,55 @@ input:focus-visible {
     transform: translate(50%, -50%);
     font-size: var(--fontSmall);
   }
+}
+
+/* ================================================ */
+.test {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 30px 30px;
+}
+.ant-collapse-expand-icon,
+.ant-collapse-expand-icon path {
+  fill: #0554f2 !important;
+  transition: 0.4s all;
+  transform-origin: 10px 10px !important;
+}
+
+.ant-collapse-expand-icon svg {
+  width: 15px;
+  height: 15px;
+}
+
+.ant-collapse-item-active .ant-collapse-expand-icon {
+  rotate: 180deg;
+}
+.ant-collapse {
+  background-color: #e6e6e6;
+}
+.test__scroll {
+  display: grid;
+  row-gap: 30px;
+  background-color: white;
+  /* grid-template-rows: 50px 50px; */
+  padding: 20px 20px;
+  height: 600px;
+  overflow: scroll;
+  padding-bottom: 40px;
+}
+.test .span {
+  height: 50px !important;
+}
+/* ================ */
+.right {
+  text-align: right;
+}
+.left {
+  text-align: left;
+}
+.orange {
+  color: #ff8b00;
+}
+.blue {
+  color: #0554f2;
 }

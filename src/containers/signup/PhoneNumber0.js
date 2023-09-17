@@ -2,7 +2,6 @@ import { Form, Button, message as messageAnt } from "antd";
 import { useState } from "react";
 import { logo } from "../../assets/icons";
 import "../../assets/bg.png";
-import otp from "../../apiCall/requestObjects/otp";
 import Checkbox from "../../components/baseComponents/Checkbox";
 import Input from "../../components/baseComponents/Input";
 import { bindActionCreators } from "redux";

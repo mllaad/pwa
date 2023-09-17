@@ -2,7 +2,6 @@ import React from "react";
 import { Button, Form, message } from "antd";
 import Input from "../../components/baseComponents/Input";
 import { logo } from "../../assets/icons";
-import forgotPasswordObj from "../../apiCall/requestObjects/forgotPassword";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import withRouter from "../../util/withModalRouter";

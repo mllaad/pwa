@@ -1,12 +1,12 @@
 import { logo } from "../../assets/icons";
 import { Form, Button, message } from "antd";
 import Input from "../../components/baseComponents/Input";
-import {
-  tokenAction,
-  logoutAction,
-  registerAction,
-  callGuestService,
-} from "../../appRedux/features/Auth";
+// import {
+//   tokenAction,
+//   logoutAction,
+//   registerAction,
+//   callGuestService,
+// } from "../../appRedux/features/Auth";
 import { connect } from "react-redux";
 import otp from "../../apiCall/requestObjects/otp";
 import { bindActionCreators } from "redux";
@@ -14,7 +14,7 @@ import timer from "../../util/timer";
 import withRouter from "../../util/withModalRouter";
 import { useEffect } from "react";
 import { useState } from "react";
-import { justToFarsi, justToEnglish } from "../../util/translateDigit";
+import { justToFarsi } from "../../util/translateDigit";
 import { useNavigate } from "react-router-dom";
 
 const PhoneNumber1 = (props) => {

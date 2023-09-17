@@ -1,5 +1,5 @@
-import React, { useEffect, useRef } from "react";
-import { Button, Form, message } from "antd";
+import React, { useEffect } from "react";
+import { Button, Form } from "antd";
 import Input from "../../components/baseComponents/Input";
 import { useState } from "react";
 import { logo } from "../../assets/icons";
