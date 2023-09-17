@@ -8,7 +8,6 @@ import withRouter from "../../util/withModalRouter";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { useRef } from "react";
-import { useEffect } from "react";
 import { bankLogo } from "../../util/digitTypeDetect";
 
 const SelectCard = (props) => {
@@ -24,16 +23,22 @@ const SelectCard = (props) => {
 
   //  =============== search field ====================
   const [cardNameUser, setCardNameUser] = useState("");
-  const filteredCards = data.filter((d) =>
-    cardNameUser ? d.card.includes(cardNameUser) : d
-  );
+  const [cardNumberUser, setCardNumberUser] = useState("");
+
+  const filteredCards = data
+    .filter((d) => (cardNumberUser ? d.card.includes(cardNumberUser) : d))
+    .filter((d) => (cardNameUser ? d.name.includes(cardNameUser) : d));
 
   const onSelectCard = (cardNumber) => () => {
     props.navigateByState("../", { cardNumber, price });
   };
 
-  //  ================ input cardNumber =============
+  // ================ input cardNumber ==============
+
+  // ================ کارت مقصد ====================
   const cardNumberChange = (e) => {
+    setCardNumberUser(e);
+
     if (e?.length === 16) {
       cardRef.current.blur();
       setIsBtnActive(false);
@@ -41,6 +46,7 @@ const SelectCard = (props) => {
       setIsBtnActive(true);
     }
   };
+
   const formatterHandler = (value) =>
     justToFarsi(`${justToEnglish(value)}`.replace(/(\d{4})/g, "$1  "));
   const parserHandler = (value) =>
@@ -59,8 +65,6 @@ const SelectCard = (props) => {
                 label: "کارت مقصد",
                 style: { textAlign: "center" },
                 initialValue: cardNumber,
-                // ? justToFarsi(digitToTomanCurrency(price))
-                // : null,
               }}
               componentOption={{
                 autoComplete: "off",
@@ -120,7 +124,7 @@ const SelectCard = (props) => {
                 <div className="">
                   <div className="selectCard__name">{obj.name}</div>
                   <div className="selectCard__card">
-                    {obj.card.replace(/(\d{4})/g, "$1 ")}
+                    {justToFarsi(obj.card.replace(/(\d{4})/g, "$1 "))}
                   </div>
                 </div>
                 <div className="selectCard__icon">{bankLogo(obj.card)}</div>
@@ -150,30 +154,12 @@ export default connect(
 )(withRouter(SelectCard));
 
 var data = [
-  { name: "milad", card: "6104502423914561" },
-  { name: "mehamadi", card: "6104502423914561" },
-  { name: "mehamadi", card: "8932502423914561" },
-  { name: "mehamadi", card: "8932502423914561" },
-  { name: "milad", card: "8932502423914561" },
-  { name: "milad", card: "8932502423914561" },
-  { name: "milad", card: "6104502423914561" },
-  { name: "nasiri", card: "6104142123914561" },
-  { name: "nasiri", card: "6104142123914561" },
-  { name: "nasiri", card: "6104142123914561" },
-  { name: "nasiri", card: "6104142123914561" },
-  { name: "nasiri", card: "6104142123914561" },
-  { name: "nasiri", card: "6104142123914561" },
-  { name: "milad", card: "6104502423914561" },
-  { name: "milad", card: "6104502423914561" },
-  { name: "milad", card: "6104502423914561" },
-  { name: "milad", card: "6104502423914561" },
-  { name: "milad", card: "61045024158684561" },
-  { name: "milad", card: "61045024158684561" },
-  { name: "raghami", card: "63725024158684561" },
-  { name: "raghami", card: "63725024158684561" },
-  { name: "raghami", card: "63725024158684561" },
-  { name: "raghami", card: "6372502423914561" },
-  { name: "milad", card: "6372502423914561" },
-  { name: "milad", card: "6372502423914561" },
-  { name: "milad", card: "6104502423914561" },
+  { name: " رومینا برزگر", card: "5029381042539858" },
+  { name: " متین نوشا", card: "6037701693675825" },
+  { name: "میلاد قاسمی", card: "6104337840874620" },
+  { name: " خدمتعلی نجفی", card: "5894631136289956" },
+  { name: "علیرضا مهرجو", card: "5892101414836557" },
+  { name: " مهدی نصیری", card: "5022291502166224" },
+  { name: "مرتضی احیایی", card: "5047061078776206" },
+  { name: "مهدی نصیری", card: "5892101471803862" },
 ];

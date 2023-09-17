@@ -1,5 +1,6 @@
-import { Button, Form } from "antd";
+import { Button, Form, Input } from "antd";
 import InputNumber from "./baseComponents/InputNumber";
+import InputPassword from "./baseComponents/InputPassword";
 
 const PaymentRequest = ({ onPaymentRequest }) => {
   const formHandle = (payment) => onPaymentRequest(payment);
@@ -8,7 +9,8 @@ const PaymentRequest = ({ onPaymentRequest }) => {
     <Form className="PaymentRequest__form" onFinish={formHandle}>
       <div className="PaymentRequest__wrap">
         <Button className="PaymentRequest__poiaBtn"> رمز پویا </Button>
-        <InputNumber
+
+        <InputPassword
           formItemOption={{
             style: { width: "100%" },
             name: "pass",
@@ -16,11 +18,11 @@ const PaymentRequest = ({ onPaymentRequest }) => {
           }}
           componentOption={{
             placeholder: "رمز",
-            style: { textAlign: "center", height: "48px" },
+            style: {},
           }}
         />
       </div>
-      <InputNumber
+      <InputPassword
         formItemOption={{
           name: "cvv",
           rules: [{ pattern: /^\d+$/, message: "بصورت عددی وارد کنید" }],

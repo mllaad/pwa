@@ -7,6 +7,7 @@ import { bindActionCreators } from "redux";
 import Refah from "../../assets/banks/Refah";
 import { bankLogo } from "../../util/digitTypeDetect";
 import { digitToTomanCurrency } from "../../util/translateCurrency";
+import { justToFarsi } from "../../util/translateDigit";
 
 const CardByCardPayment = (props) => {
   const cardNumber = props.router.location.state?.cardNumber;
@@ -26,7 +27,7 @@ const CardByCardPayment = (props) => {
       <Header onBack={onCancel} title={"کارت به کارت"} />
       <div className="CardByCardPayment__container">
         <Card
-          cardNumber={"8794 6312 3456 7890"}
+          cardNumber={justToFarsi("8794 6312 3456 7890")}
           title={"بانک رفاه"}
           logo={Refah}
         />
@@ -38,7 +39,7 @@ const CardByCardPayment = (props) => {
           <div className="CardByCardPayment__mid"> مبلغ {transferIcon}</div>
         </div>
         <Card
-          cardNumber={cardNumber.replace(/(\d{4})/g, "$1 ")}
+          cardNumber={justToFarsi(cardNumber.replace(/(\d{4})/g, "$1 "))}
           title={"بانک تجارت"}
           logo={bankLogo(cardNumber)}
         />

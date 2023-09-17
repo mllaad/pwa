@@ -783,7 +783,7 @@
   display: grid;
   grid-template-rows: 100px 60px 80px 40px;
   justify-items: center;
-  width: 70%;
+  width: 75%;
   margin: auto;
 }
 .SelectPhoneNumber__groupTitle {
