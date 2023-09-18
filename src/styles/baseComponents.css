@@ -426,3 +426,25 @@
 .default__inputpassword input {
   text-align: center;
 }
+
+@media screen and (max-width: 425px) {
+  .default__inputpassword {
+    font-size: var(--fontLarge);
+    height: var(--normalHeight);
+    border-radius: var(--medium);
+  }
+}
+@media screen and (max-width: 375px) {
+  .default__inputpassword {
+    font-size: var(--fontSmall);
+    height: var(--smallHeight);
+    border-radius: var(--small);
+  }
+}
+@media screen and (max-width: 320px) {
+  .default__inputpassword {
+    font-size: var(--fontMedium);
+    height: var(--extraSmallHeight);
+    border-radius: var(--extraSmall);
+  }
+}

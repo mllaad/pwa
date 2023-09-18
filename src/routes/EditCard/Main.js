@@ -117,7 +117,6 @@ const EditCard = (props) => {
                 onFocus: (e) => e.target.select(),
               }}
             />
-            {/* <span className="EditCard__label"> ماه</span> */}
           </div>
 
           <Button className="EditCard__btn" htmlType="submit">

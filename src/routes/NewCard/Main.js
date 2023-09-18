@@ -102,7 +102,7 @@ const NewCard = (props) => {
     if (/\d{2}/.test(justToEnglish(value))) {
       yearRef.current.focus();
     }
-    return justToEnglish(value);
+    return justToEnglish(value) > 12 ? "12" : justToEnglish(value);
   };
 
   return (

@@ -10,6 +10,7 @@ import withRouter from "../../util/withModalRouter";
 import { digitToTomanCurrency } from "../../util/translateCurrency";
 import { justToEnglish, justToFarsi } from "../../util/translateDigit";
 import { wordifyRialsInTomans } from "../../util/numberToToman";
+import { simCardName } from "../../util/digitTypeDetect";
 
 const ChargeSimCard = (props) => {
   const onCancel = () => props.navigate(-1);
@@ -48,7 +49,22 @@ const ChargeSimCard = (props) => {
     if (!price) return message.error("مبلغ را وارد نمایید");
     const phoneNumber = props.router.location.state?.phoneNumber;
 
-    props.navigateByState("../../Payment", { price, phoneNumber });
+    const _simCardName = simCardName(justToEnglish(phoneNumber));
+
+    console.log(_simCardName, "simCardName");
+    const type = {
+      irancell: "شارژ ایرانسل",
+      shatel: "شارژ شاتل",
+      hamrahaval: "شارژ همراه اول",
+      raitel: "شارژ رایتل",
+    };
+
+    props.navigateByState("../../Payment", {
+      header_1: type[_simCardName],
+      header_2: phoneNumber,
+      logo: _simCardName,
+      price: price,
+    });
   };
   return (
     <>

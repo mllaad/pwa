@@ -6,6 +6,7 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 // import { translateDigit } from "";
 import { digitToTomanCurrency } from "../../util/translateCurrency";
+import { justToFarsi } from "../../util/translateDigit";
 const InternetOption = (props) => {
   const phoneNumber = props.router.location.state?.phoneNumber;
   const tarabari = props.router.location.state?.tarabari;
@@ -29,14 +30,14 @@ const InternetOption = (props) => {
   const clickHandle = (val) => {
     console.log(val);
     const type = {
-      irancell: "شارژ ایرانسل",
-      shatel: "شارژ شاتل",
-      hamrahaval: "شارژ همراه اول",
-      raitel: "شارژ رایتل",
+      irancell: "شارژ اینترنت ایرانسل",
+      shatel: "شارژ اینترنت شاتل",
+      hamrahaval: " همراه اول",
+      raitel: "شارژ اینترنت رایتل",
     };
     props.navigateByState("../../Payment", {
       header_1: phoneNumber,
-      header_2: type[tarabari],
+      header_2: "شارژ اینترنت",
       logo: tarabari,
       price: val,
     });
@@ -67,9 +68,11 @@ const InternetOption = (props) => {
                   onClick={() => clickHandle(val)}
                 >
                   <div className="InternetOption__list--price">
-                    {digitToTomanCurrency(val)} تومان
+                    {justToFarsi(digitToTomanCurrency(val))} تومان
                   </div>
-                  <div className="InternetOption__list--title">تست</div>
+                  <div className="InternetOption__list--title" dir="rtl">
+                    {justToFarsi(Math.floor(Math.random() * 100))} گیگابایت
+                  </div>
                 </div>
               );
             })}

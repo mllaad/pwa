@@ -29,7 +29,6 @@ const PaymentType = (props) => {
       props.navigate("Payment2");
     }
   };
-
   return (
     <>
       <Header onBack={backHandle} title />

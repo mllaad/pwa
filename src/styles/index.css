@@ -206,6 +206,11 @@ body {
   grid-column: 2 / 4;
   aspect-ratio: 2 / 1 !important;
 }
+.Icon__svg,
+.Icon__svg svg {
+  width: 30px !important;
+  height: 30px !important;
+}
 .gridmain .icon__svg,
 .gridmain .icon__svg svg {
   width: 100px !important;
@@ -970,7 +975,6 @@ body {
   display: grid;
   row-gap: 30px;
   column-gap: 20px;
-
   grid-template-columns: 1fr 1fr 1fr;
 }
 .carbill-add {
@@ -2033,6 +2037,7 @@ input:focus-visible {
   display: flex;
   justify-content: end;
   padding: 5px;
+  cursor: pointer;
 }
 .selectCard__name {
   text-align: right;
@@ -2687,7 +2692,6 @@ input:focus-visible {
   display: grid;
   row-gap: 30px;
   background-color: white;
-  /* grid-template-rows: 50px 50px; */
   padding: 20px 20px;
   height: 600px;
   overflow: scroll;
@@ -2696,7 +2700,6 @@ input:focus-visible {
 .test .span {
   height: 50px !important;
 }
-/* ================ */
 .right {
   text-align: right;
 }
