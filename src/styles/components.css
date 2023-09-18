@@ -498,6 +498,7 @@
   position: relative;
   transition: 0.4s all;
   scale: 1.02;
+  cursor: grab;
 }
 .Card__icon {
   position: absolute;
@@ -989,12 +990,18 @@
 .footer__itemImage {
   width: 75%;
   margin: auto;
+  scale: 1.1;
 }
 .footer__itemImage svg {
   width: 100%;
   height: 100%;
 }
 @media screen and (max-width: 768px) {
+  .footer__itemImage {
+    width: 75%;
+    margin: auto;
+    scale: 1;
+  }
   .footer__items {
     top: -25px;
   }
